@@ -1,0 +1,89 @@
+:root {
+    --calcWidth: 295px;
+    --calcHeight: 409px;
+    --displayHeight: 99px;
+    --displayWidth: 295px;
+    --buttonWidth: 73px;
+    --buttonHeight: 61px;
+    --displayAndBackgroundColor: #464B4B;
+    --controlsColor: #585C5D;
+    --operationsColor: #FF9F0C;
+    --numbersColor: #727778;
+}
+
+div.container {
+    /* padding: 0px; */
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 0px;
+    display: grid;
+    background-color: var(--displayAndBackgroundColor);
+    width: var(--calcWidth);
+    grid-template-rows: var(--displayHeight) var(--buttonHeight) var(--buttonHeight) var(--buttonHeight) var(--buttonHeight) var(--buttonHeight);
+    grid-template-columns: var(--buttonWidth) var(--buttonWidth) var(--buttonWidth) var(--buttonWidth);
+    gap: 1px;
+}
+
+.display {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    background-color: var(--displayAndBackgroundColor);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 70px;
+    font-family: Courier New; 
+    color: white;
+}
+
+.display > div {
+    position: relative;
+    right: 20px;
+    top: 25px;
+    white-space: nowrap;
+    text-align: right;
+    letter-spacing: -5px;
+}
+
+.buttons {
+    font-size: 23px;
+    font-family: Arial;
+    color: white;
+    text-align: center;
+    line-height: var(--buttonHeight);
+    cursor: pointer;
+}
+
+#controls {
+    background-color: var(--controlsColor);
+}
+
+#controls:hover {
+    background-color: aqua;
+}
+
+#operations {
+    background-color: var(--operationsColor);
+}
+
+#operations:hover {
+    background-color: aqua;
+}
+
+#numbers {
+    background-color: var(--numbersColor);
+}
+
+#numbers:hover {
+    background-color: aqua;
+}
+
+#numbersBig {
+    background-color: var(--numbersColor);
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border-bottom-left-radius: 10px;
+}
+
+#numbersBig:hover {
+    background-color: aqua;
+}
