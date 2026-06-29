@@ -1,16 +1,96 @@
 <!DOCTYPE html>
 <html>
+
+<script>
+    function redirect(href) {
+        window.location.href = href
+    }
+</script>
+
+<style>
+    /* .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } */
+    .about-me {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    .contents {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    .project {
+        border-style: ridge;
+        border-radius: 30px;
+    }
+    .project-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 3px solid #ccc;
+        padding: 20px;
+        margin-bottom: 15px; /* Avstand mellom boksene */
+        cursor: pointer;
+        border-radius: 30px;
+    }
+    .project-info {
+        flex: 1; /* Tar opp plassen som er igjen */
+        padding-right: 20px;
+    }
+    .project-image {
+        width: 150px; /* Fast bredde på bildeområdet */
+        height: 100px;
+        background-color: #eee; /* Plassholder hvis bilde mangler */
+        flex-shrink: 0;
+    }
+    .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+
 <head>
     <title>Kjetil portfolio</title>
 </head>
 <body style="background-color: aliceblue;">
 
-    <div id="title">
-        <head>Velkommen til portefølje</head>
+    <div class="title">
+        <h2 style="text-align: center;">Velkommen til portefølje</h2>
     </div>
-    <div id="about-me">
-        <h1>Om meg</h1>
-        <p>Jeg heter Kjetil. Er så og så gammel. Studerer kognitiv vitenskap og maskinlæring. Her er flere prosjekt jeg har lagd.</p>
+    <div class="about-me" style="border-style: ridge; border-radius: 30px;">
+        <h3>Om meg</h3>
+        <p>Jeg heter Kjetil. Er så og så gammel. <br>
+            Studerer kognitiv vitenskap og maskinlæring. <br>
+            Her er flere prosjekt jeg har lagd.</p>
+    </div>
+    <div class="contents">
+        <h3>Prosjekter</h3>
+        
+        <div class="project-card" onclick="redirect('https://lilleeng.github.io/portfolio/kalkulator/kalkulator.html')">
+            <div class="project-info">
+                <h3>HTML-CSS-JavaScript Kalkulator</h3>
+                <p>Et lite prosjekt med formål om å lage en fungerende kalkulator med en interaktiv GUI med reagerende effekter for å få en følelse for hvordan HTML, CSS, og JavaScript fungerer.</p>
+            </div>
+            <div class="project-image">
+                <img src="imgs/kalkulator.png">
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-info">
+                <h3>MNIST</h3>
+                <p>Min trente MNIST modell.</p>
+            </div>
+            <div class="project-image">
+                <img src="imgs/MNIST.png">
+            </div>
+        </div>
+
     </div>
 
 </body>
