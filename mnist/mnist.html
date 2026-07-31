@@ -1,22 +1,68 @@
 <!DOCTYPE html>
+<html lang=no>
 
-<script>
-    function test_load_and_run() {
-        var input_n = Number(document.getElementById("n").value)
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./mnist.js" defer></script>
+    <style>
 
+        .container {
+            display: flex;
+            gap: 40px;
+        }
 
+        .drawing-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-        console.log(input_n + 0.5);
-    }
-</script>
+        .canvas {
+            border: 3px solid #333;
+            background-color: white;
+            cursor: crosshair;
+            touch-action: none; /* dont understand */
+        }
+
+        .button {
+            background-color: aqua;
+            color: white;
+            border: none;
+            padding: 10px 118px;
+            display: block;
+            font-size: 25px;
+            margin: 10px 10px;
+            cursor: pointer;
+            border-radius: 25px;
+
+            text-align: center;
+            text-decoration: none; /* dont understand */
+        }
+
+        .button:hover {
+            background-color: red;
+            color: black;
+        }
+
+    </style>
+</head>
 
 <body style="background-color: antiquewhite;">
 
-    <div style="text-align: center;">
-        <form>
-            <input type="number" id="n" value="0">
-            <button onclick="test_load_and_run()" style="position: absolute; top: 50%;">Calculate!</button>
-        </form>
+    <div class="container">
+        <div class="drawing-section">
+            <canvas class="canvas" width="300" height="300"></canvas>
+            <div class="drawing-board-controls">
+                <button class="button" onclick="clearCanvas()">Empty</button>
+            </div>
+        </div>
+
+        <div id="histogram">
+            <cavnas class="canvas" width="250" height="250"></cavnas>
+        </div>
     </div>
 
 </body>
+
+</html>
