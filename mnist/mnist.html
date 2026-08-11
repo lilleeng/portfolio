@@ -6,10 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./mnist.js" defer></script>
     <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            
+            
 
+            /* margin-top: 50px; */
+
+            /* align-items: center; */
+            /* justify-content: center; */
+            /* margin: auto; */
+            /* place-items: center; */
+        }
         .container {
             display: flex;
-            gap: 40px;
+            gap: 20px;
+            background: rgb(209, 209, 209);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .drawing-section {
@@ -18,15 +40,18 @@
             align-items: center;
         }
 
-        .canvas {
-            border: 3px solid #333;
+        .drawing-canvas {
+            width: 300px;
+            height: 300px;
+            border: 2px solid #333;
             background-color: white;
             cursor: crosshair;
             touch-action: none; /* dont understand */
+            image-rendering: pixelated;
         }
 
         .button {
-            background-color: aqua;
+            background-color: black;
             color: white;
             border: none;
             padding: 10px 118px;
@@ -41,27 +66,136 @@
         }
 
         .button:hover {
-            background-color: red;
-            color: black;
+            background-color: rgb(49, 49, 49);
+            color: white;
+        }
+
+        .histogram-div {
+            margin-top: 25px;
+        }
+
+        #histogram {
+            border: 0px solid #333;
+            /* background-color: white; */
+            /* cursor: crosshair; */
+            touch-action: none; /* dont understand */
         }
 
     </style>
 </head>
 
-<body style="background-color: antiquewhite;">
+<body style="background-color: #333;" onload="init();">
 
     <div class="container">
         <div class="drawing-section">
-            <canvas class="canvas" width="300" height="300"></canvas>
+            <canvas id='canvas' class="drawing-canvas" width="28" height="28"></canvas>
             <div class="drawing-board-controls">
                 <button class="button" onclick="clearCanvas()">Empty</button>
             </div>
         </div>
 
-        <div id="histogram">
-            <cavnas class="canvas" width="250" height="250"></cavnas>
+        <div class="histogram-div">
+            <canvas id="histogram" width="250" height="250"></canvas>
         </div>
     </div>
+
+
+
+    <script>
+        "use strict";
+
+        // Drawing canvas variables
+        const canvas = document.getElementById('canvas');
+        const canvasCtx = canvas.getContext('2d');
+        let isDrawing = false;
+        // canvas.width = 28;
+        // canvas.height = 28;
+        // canvas.style.width = "300px";
+        // canvas.style.height = "300px";
+        // canvasCtx.imageSmoothingEnabled = false;
+
+        // Histogram variables
+        const histogram = document.querySelector("#histogram");
+        const histogramCtx = histogram.getContext("2d");
+        const dummyData = [0.1, 0.05, 0.15, 0.1, 0.2, 0.05, 0.05, 0.1, 0.05, 0.15];
+        drawHistogram(dummyData, 'lime');
+
+
+        function startDrawing(e) {
+            isDrawing = true;
+            draw(e);
+        }
+
+        function stopDrawing() {
+            if (!isDrawing) return;
+            isDrawing = false;
+            canvasCtx.beginPath();
+            // runPrediction();     // running model
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+
+            const canvasRect = canvas.getBoundingClientRect();
+
+            const scaleX = canvas.width / canvasRect.width;
+            const scaleY = canvas.height / canvasRect.height;
+
+            const x = (e.clientX - canvasRect.left) * scaleX;
+            const y = (e.clientY - canvasRect.top) * scaleY;
+
+            canvasCtx.lineWidth = 2;
+            canvasCtx.lineCap = 'round';
+            canvasCtx.strokeStyle = 'black';
+
+            canvasCtx.lineTo(x, y);
+            canvasCtx.stroke();
+            canvasCtx.beginPath();
+            canvasCtx.moveTo(x, y);
+        }
+
+        function clearCanvas() {
+            canvasCtx.fillStyle = 'white';
+            canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+            // Reset histogram here
+        }
+
+        function init() {
+            console.log('placeholder');
+        }
+
+        function drawHistogram(data, barcolor) {
+            histogramCtx.save();
+            histogramCtx.font = 'italic 10pt Calibri';
+            histogramCtx.fillStyle = barcolor;
+
+            const barwidth = 250/10;
+            const canvasSize = 250;
+
+            var posX = 0;
+            var posY = 0;
+            for (var i=0; i < data.length; i++) {
+                let barheight = data[i] * canvasSize;
+                posX = 0;
+                posY = i * barwidth;
+
+                histogramCtx.fillRect(posX, posY, barheight, barwidth);
+                histogramCtx.save();
+                histogramCtx.fillStyle = 'black';
+
+                histogramCtx.fillText(data[i], posX + barheight + 5, posY + 15);
+                histogramCtx.restore();
+            }
+            histogramCtx.restore();
+        }
+
+        // Add event listeners for mouse
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseleave', () => {if (isDrawing) stopDrawing(); });
+
+    </script>
 
 </body>
 
