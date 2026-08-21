@@ -4,7 +4,9 @@
 <head>
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./mnist.js" defer></script>
+    <!-- <script src="./mnist.js" defer></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
     <style>
         body {
             display: flex;
@@ -84,7 +86,7 @@
     </style>
 </head>
 
-<body style="background-color: #333;" onload="init();">
+<body style="background-color: #333;">
 
     <div class="container">
         <div class="drawing-section">
@@ -99,27 +101,81 @@
         </div>
     </div>
 
-
-
     <script>
         "use strict";
+
+        // ONNX variables
+        let session = null;
 
         // Drawing canvas variables
         const canvas = document.getElementById('canvas');
         const canvasCtx = canvas.getContext('2d');
         let isDrawing = false;
-        // canvas.width = 28;
-        // canvas.height = 28;
-        // canvas.style.width = "300px";
-        // canvas.style.height = "300px";
-        // canvasCtx.imageSmoothingEnabled = false;
+
+        showLoadingScreen();
 
         // Histogram variables
         const histogram = document.querySelector("#histogram");
         const histogramCtx = histogram.getContext("2d");
-        const dummyData = [0.1, 0.05, 0.15, 0.1, 0.2, 0.05, 0.05, 0.1, 0.05, 0.15];
-        drawHistogram(dummyData, 'lime');
 
+        async function init() {
+            try {
+                session = await ort.InferenceSession.create('./mnist.onnx');
+                clearCanvas();  // clear when done loading
+            }
+            catch (e) {
+                console.error(e);
+            }
+        }
+
+        function prepareImageDataForInference() {
+            const dims = [1, 1, 28, 28];
+            let imgData = canvasCtx.getImageData(0, 0, canvas.width, canvas.height).data;
+            let floatData = new Float32Array(28 * 28);
+            for (let i = 0; i < imgData.length / 4; i++) {
+                let colorValue = imgData[4 * i] / 255.0; 
+                floatData[i] = colorValue;
+            }
+            let tensor = { input1: new ort.Tensor('float32', floatData, dims) };
+            return tensor;
+        }
+
+        async function runInference() {
+            if (!session) {
+                console.warn('Model not done loading!');
+                return;
+            }
+            const feed = prepareImageDataForInference();
+            try {
+                const results = await session.run(feed);
+                drawHistogram(results.output1.data, 'red');
+            }
+            catch (e) {
+                console.error('Error during inference:', e);
+            }
+        }
+
+        async function pytorch_run() {
+            try {
+                // create a session
+                const session = await ort.InferenceSession.create('./mnist.onnx');
+
+                // prepare dummy data
+                const dims = [1, 1, 28, 28];
+                const size = dims[0] * dims[1] * dims[2] * dims[3];
+                const inputData = Float32Array.from({ length: size }, () => Math.random());
+
+                // prepare feeds
+                const feeds = { input1: new ort.Tensor('float32', inputData, dims) };
+
+                // feed inputs and run
+                const results = await session.run(feeds);
+                console.log(results.output1.data);
+            }
+            catch (e) {
+                console.log(e);
+            }
+        }
 
         function startDrawing(e) {
             isDrawing = true;
@@ -130,7 +186,7 @@
             if (!isDrawing) return;
             isDrawing = false;
             canvasCtx.beginPath();
-            // runPrediction();     // running model
+            runInference();     // running model
         }
 
         function draw(e) {
@@ -157,14 +213,22 @@
         function clearCanvas() {
             canvasCtx.fillStyle = 'white';
             canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
-            // Reset histogram here
+            clearHistogram();
         }
 
-        function init() {
-            console.log('placeholder');
+        function fillCanvas(color) {
+            canvasCtx.fillStyle = color;
+            canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+            clearHistogram();
+        }
+
+        function clearHistogram() {
+            histogramCtx.fillStyle = '#D1D1D1';
+            histogramCtx.fillRect(0, 0, histogram.width, histogram.height);
         }
 
         function drawHistogram(data, barcolor) {
+            clearHistogram();
             histogramCtx.save();
             histogramCtx.font = 'italic 10pt Calibri';
             histogramCtx.fillStyle = barcolor;
@@ -189,12 +253,24 @@
             histogramCtx.restore();
         }
 
+        function showLoadingScreen() {
+            // TODO
+            canvasCtx.fillStyle = '#AAAAAA';
+            canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+
+            canvasCtx.font = "8px sans-serif";
+            canvasCtx.fillStyle = '#000000';
+            canvasCtx.textAlign = 'center';
+            canvasCtx.fillText("Loading", 14, 18);
+        }
+
         // Add event listeners for mouse
         canvas.addEventListener('mousedown', startDrawing);
         canvas.addEventListener('mousemove', draw);
         canvas.addEventListener('mouseup', stopDrawing);
         canvas.addEventListener('mouseleave', () => {if (isDrawing) stopDrawing(); });
 
+        init();
     </script>
 
 </body>
