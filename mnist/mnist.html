@@ -77,7 +77,7 @@
         }
 
         #histogram {
-            border: 1px solid #333;
+            border: 0px solid #333;
             /* background-color: white; */
             /* cursor: crosshair; */
             touch-action: none; /* dont understand */
@@ -223,31 +223,33 @@
         }
 
         function clearHistogram() {
+            // Variables
+            const backgroundColor = '#D1D1D1'
+            const textExtraYmargin = 3;
+            const lineMarginToText = 25;
             // Draw blank background
-            histogramCtx.fillStyle = '#D1D1D1';
+            histogramCtx.fillStyle = backgroundColor;
             histogramCtx.fillRect(0, 0, histogram.width, histogram.height);
-            // Draw y-axis numbers
+            // Draw y-axis classification numbers
             histogramCtx.fillStyle = 'black';
             histogramCtx.font = 'italic 15pt Calibri';
             histogramCtx.textBaseline = 'top';
-            const drawingX = 0;
-            const extraYmargin = 3;
+            const textXPos = 0;
             for (let i = 0; i < 10; i++) {
-                const drawingY = histogram.height * i / 10 + extraYmargin;
-                histogramCtx.fillText(i, drawingX, drawingY);
+                const textYPos = histogram.height * i / 10 + textExtraYmargin;
+                histogramCtx.fillText(i, textXPos, textYPos);
             }
             // Draw vertical seperation line
-            const marginToText = 25;
             histogramCtx.beginPath();
-            histogramCtx.moveTo(marginToText, 0);
-            histogramCtx.lineTo(marginToText, histogram.height);
+            histogramCtx.moveTo(lineMarginToText, 0);
+            histogramCtx.lineTo(lineMarginToText, histogram.height);
             histogramCtx.stroke();
         }
 
         function drawHistogram(data, barcolor) {
-            // drawHistogram2(data, barcolor);
+            drawHistogram2(data, barcolor);
 
-            clearHistogram();
+            // clearHistogram();
             // histogramCtx.save();
             // histogramCtx.font = 'italic 10pt Calibri';
             // histogramCtx.fillStyle = barcolor;
@@ -274,25 +276,38 @@
 
         function drawHistogram2(data, barcolor) {
             clearHistogram();
-            histogramCtx.save();
+            histogramCtx.save();     // why save?
             histogramCtx.font = 'italic 10pt Calibri';
             histogramCtx.fillStyle = barcolor;
 
-            const barwidth = 250/10;
-            const canvasSize = 250;
+            const barThicknessReduction = 3;
+            const barwidth = histogram.height/10 - 2 * barThicknessReduction;
+            const canvasSize = histogram.height;     // same as width
+            const barMarginToText = 40;
+            const likelihoodMarginToBar = 5;
+            const likelihoodYShift = 6;
 
-            var posX = 0;
+            var posX = barMarginToText;
             var posY = 0;
             for (var i=0; i < data.length; i++) {
-                let barheight = data[i] * canvasSize;
-                posX = 0;
-                posY = i * barwidth;
+                let barLength = data[i] * canvasSize;
+                posY = i * canvasSize/10;
 
-                histogramCtx.fillRect(posX, posY, barheight, barwidth);
+                histogramCtx.fillRect(
+                    posX, 
+                    posY + barThicknessReduction, 
+                    barLength, 
+                    barwidth
+                );
                 histogramCtx.save();
-                histogramCtx.fillStyle = 'black';
 
-                histogramCtx.fillText(data[i], posX + barheight + 5, posY + 15);
+                const classLikelihood = data[i].toFixed(2);
+                histogramCtx.fillStyle = 'black';
+                histogramCtx.fillText(
+                    classLikelihood, 
+                    posX + barLength + likelihoodMarginToBar, 
+                    posY + likelihoodYShift
+                );
                 histogramCtx.restore();
             }
             histogramCtx.restore();
