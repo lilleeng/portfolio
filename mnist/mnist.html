@@ -4,22 +4,11 @@
 <head>
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <script src="./mnist.js" defer></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
     <style>
         body {
             display: flex;
             flex-direction: column;
-            
-            
-
-            /* margin-top: 50px; */
-
-            /* align-items: center; */
-            /* justify-content: center; */
-            /* margin: auto; */
-            /* place-items: center; */
         }
         .container {
             display: flex;
@@ -86,7 +75,7 @@
     </style>
 </head>
 
-<body style="background-color: #333;">
+<body style="background-color: #333333;">
 
     <div class="container">
         <div class="drawing-section">
@@ -148,32 +137,10 @@
             const feed = prepareImageDataForInference();
             try {
                 const results = await session.run(feed);
-                drawHistogram(results.output1.data, 'red');
+                drawHistogram(results.output1.data);
             }
             catch (e) {
                 console.error('Error during inference:', e);
-            }
-        }
-
-        async function pytorch_run() {
-            try {
-                // create a session
-                const session = await ort.InferenceSession.create('./mnist.onnx');
-
-                // prepare dummy data
-                const dims = [1, 1, 28, 28];
-                const size = dims[0] * dims[1] * dims[2] * dims[3];
-                const inputData = Float32Array.from({ length: size }, () => Math.random());
-
-                // prepare feeds
-                const feeds = { input1: new ort.Tensor('float32', inputData, dims) };
-
-                // feed inputs and run
-                const results = await session.run(feeds);
-                console.log(results.output1.data);
-            }
-            catch (e) {
-                console.log(e);
             }
         }
 
@@ -216,12 +183,6 @@
             clearHistogram();
         }
 
-        function fillCanvas(color) {
-            canvasCtx.fillStyle = color;
-            canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
-            clearHistogram();
-        }
-
         function clearHistogram() {
             // Variables
             const backgroundColor = '#D1D1D1'
@@ -246,63 +207,62 @@
             histogramCtx.stroke();
         }
 
-        function drawHistogram(data, barcolor) {
-            drawHistogram2(data, barcolor);
-
-            // clearHistogram();
-            // histogramCtx.save();
-            // histogramCtx.font = 'italic 10pt Calibri';
-            // histogramCtx.fillStyle = barcolor;
-
-            // const barwidth = 250/10;
-            // const canvasSize = 250;
-
-            // var posX = 0;
-            // var posY = 0;
-            // for (var i=0; i < data.length; i++) {
-            //     let barheight = data[i] * canvasSize;
-            //     posX = 0;
-            //     posY = i * barwidth;
-
-            //     histogramCtx.fillRect(posX, posY, barheight, barwidth);
-            //     histogramCtx.save();
-            //     histogramCtx.fillStyle = 'black';
-
-            //     histogramCtx.fillText(data[i], posX + barheight + 5, posY + 15);
-            //     histogramCtx.restore();
-            // }
-            // histogramCtx.restore();
-        }
-
-        function drawHistogram2(data, barcolor) {
+        function drawHistogram(data) {
             clearHistogram();
             histogramCtx.save();     // why save?
             histogramCtx.font = 'italic 10pt Calibri';
-            histogramCtx.fillStyle = barcolor;
+            // histogramCtx.fillStyle = barcolor;
 
+            const textColor = '#000000';
+            const barColor = '#333333';
             const barThicknessReduction = 3;
-            const barwidth = histogram.height/10 - 2 * barThicknessReduction;
+            const barWidth = histogram.height/10 - 2 * barThicknessReduction;
             const canvasSize = histogram.height;     // same as width
             const barMarginToText = 40;
             const likelihoodMarginToBar = 5;
             const likelihoodYShift = 6;
 
-            var posX = barMarginToText;
-            var posY = 0;
-            for (var i=0; i < data.length; i++) {
-                let barLength = data[i] * canvasSize;
-                posY = i * canvasSize/10;
+            const backgroundColor = '#D1D1D1'
+            const rectangleLineWidth = 3;
 
-                histogramCtx.fillRect(
-                    posX, 
-                    posY + barThicknessReduction, 
-                    barLength, 
-                    barwidth
-                );
+            var posX = barMarginToText;
+            var mostLikelyNumber = data.indexOf(Math.max(...data));
+            for (var i=0; i < data.length; i++) {
+
+                let barLength = data[i] * canvasSize;
+                let posY = i * canvasSize/10;
+                histogramCtx.fillStyle = barColor;
+                // histogramCtx.lineWidth = 1;
+                if (i === mostLikelyNumber) {
+                    // Draw bar for most likely classification
+                    histogramCtx.fillRect(
+                        posX, 
+                        posY + barThicknessReduction, 
+                        barLength, 
+                        barWidth
+                    );
+                }
+                else {
+                    // Draw bar for other classifications
+                    histogramCtx.fillRect(
+                        posX, 
+                        posY + barThicknessReduction, 
+                        barLength, 
+                        barWidth
+                    );
+                    histogramCtx.fillStyle = backgroundColor;
+                    histogramCtx.fillRect(
+                        posX + rectangleLineWidth, 
+                        posY + barThicknessReduction + rectangleLineWidth, 
+                        barLength - 2 * rectangleLineWidth, 
+                        barWidth - 2 * rectangleLineWidth
+                    );
+                }
                 histogramCtx.save();
 
+                // Draw text
                 const classLikelihood = data[i].toFixed(2);
-                histogramCtx.fillStyle = 'black';
+                histogramCtx.fillStyle = textColor;
                 histogramCtx.fillText(
                     classLikelihood, 
                     posX + barLength + likelihoodMarginToBar, 
@@ -314,7 +274,9 @@
         }
 
         function showLoadingScreen() {
-            // TODO
+            // TODO: make better looking loading screen
+            // Use a different canvas with higher resolution for the loading screen,
+            // swapping it out when the model is loaded.
             canvasCtx.fillStyle = '#AAAAAA';
             canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
 
