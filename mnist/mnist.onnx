@@ -1,5 +1,5 @@
-pytorch2.2.2:¬Υ
-£ 
+pytorch2.2.2:φτ
+Ά 
 input1
 conv1.weight
 
@@ -8,12 +8,12 @@ conv1.bias/conv1/Conv_output_0/conv1/Conv"Conv*
 group *
 kernel_shape@@ *
 pads@@@@ *
-strides@@ 2χc:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\conv.py(456): _conv_forward
+strides@@ 2φc:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\conv.py(456): _conv_forward
 c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\conv.py(460): forward
 c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1501): _slow_forward
 c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1520): _call_impl
 c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1511): _wrapped_call_impl
-C:\Users\klill\AppData\Local\Temp\ipykernel_16920\1061738168.py(10): forward
+C:\Users\klill\AppData\Local\Temp\ipykernel_16920\616698961.py(10): forward
 c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1501): _slow_forward
 c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1520): _call_impl
 c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1511): _wrapped_call_impl
@@ -51,13 +51,13 @@ c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\ipykernel_launcher.py(18)
 <frozen runpy>(88): _run_code
 <frozen runpy>(198): _run_module_as_main
 
-λ
+κ
 /conv1/Conv_output_0/flat/Flatten_output_0/flat/Flatten"Flatten*
-axis 2•c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\flatten.py(49): forward
+axis 2”c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\flatten.py(49): forward
 c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1501): _slow_forward
 c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1520): _call_impl
 c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1511): _wrapped_call_impl
-C:\Users\klill\AppData\Local\Temp\ipykernel_16920\1061738168.py(11): forward
+C:\Users\klill\AppData\Local\Temp\ipykernel_16920\616698961.py(11): forward
 c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1501): _slow_forward
 c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1520): _call_impl
 c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1511): _wrapped_call_impl
@@ -95,17 +95,62 @@ c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\ipykernel_launcher.py(18)
 <frozen runpy>(88): _run_code
 <frozen runpy>(198): _run_module_as_main
 
-™
+¦
 /flat/Flatten_output_0
 dense1.weight
-dense1.biasoutput1/dense1/Gemm"Gemm*
+dense1.bias/dense1/Gemm_output_0/dense1/Gemm"Gemm*
 alpha  €? *
 beta  €? *
-transB 2•c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\linear.py(116): forward
+transB 2”c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\linear.py(116): forward
 c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1501): _slow_forward
 c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1520): _call_impl
 c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1511): _wrapped_call_impl
-C:\Users\klill\AppData\Local\Temp\ipykernel_16920\1061738168.py(12): forward
+C:\Users\klill\AppData\Local\Temp\ipykernel_16920\616698961.py(12): forward
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1501): _slow_forward
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1520): _call_impl
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1511): _wrapped_call_impl
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\jit\_trace.py(129): wrapper
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\jit\_trace.py(138): forward
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1520): _call_impl
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1511): _wrapped_call_impl
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\jit\_trace.py(1296): _get_trace_graph
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\onnx\utils.py(915): _trace_and_get_graph_from_model
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\onnx\utils.py(1011): _create_jit_graph
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\onnx\utils.py(1135): _model_to_graph
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\onnx\utils.py(1613): _export
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\onnx\utils.py(516): export
+C:\Users\klill\AppData\Local\Temp\ipykernel_16920\4012488620.py(9): <module>
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\IPython\core\interactiveshell.py(3699): run_code
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\IPython\core\interactiveshell.py(3639): run_ast_nodes
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\IPython\core\interactiveshell.py(3394): run_cell_async
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\IPython\core\async_helpers.py(128): _pseudo_sync_runner
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\IPython\core\interactiveshell.py(3171): _run_cell
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\IPython\core\interactiveshell.py(3116): run_cell
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\ipykernel\zmqshell.py(602): run_cell
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\ipykernel\ipkernel.py(455): do_execute
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\ipykernel\kernelbase.py(767): execute_request
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\ipykernel\ipkernel.py(368): execute_request
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\ipykernel\kernelbase.py(400): dispatch_shell
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\ipykernel\kernelbase.py(508): process_one
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\ipykernel\kernelbase.py(519): dispatch_queue
+c:\Users\klill\miniconda3\envs\dele2\Lib\asyncio\events.py(88): _run
+c:\Users\klill\miniconda3\envs\dele2\Lib\asyncio\base_events.py(1999): _run_once
+c:\Users\klill\miniconda3\envs\dele2\Lib\asyncio\base_events.py(645): run_forever
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\tornado\platform\asyncio.py(211): start
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\ipykernel\kernelapp.py(739): start
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\traitlets\config\application.py(1075): launch_instance
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\ipykernel_launcher.py(18): <module>
+<frozen runpy>(88): _run_code
+<frozen runpy>(198): _run_module_as_main
+
+Ό
+/dense1/Gemm_output_0output1/sm/Softmax"Softmax*
+axis 2φc:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\functional.py(1858): softmax
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\activation.py(1514): forward
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1501): _slow_forward
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1520): _call_impl
+c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1511): _wrapped_call_impl
+C:\Users\klill\AppData\Local\Temp\ipykernel_16920\616698961.py(13): forward
 c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1501): _slow_forward
 c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1520): _call_impl
 c:\Users\klill\miniconda3\envs\dele2\Lib\site-packages\torch\nn\modules\module.py(1511): _wrapped_call_impl

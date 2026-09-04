@@ -122,11 +122,18 @@
             let imgData = canvasCtx.getImageData(0, 0, canvas.width, canvas.height).data;
             let floatData = new Float32Array(28 * 28);
             for (let i = 0; i < imgData.length / 4; i++) {
-                let colorValue = imgData[4 * i] / 255.0; 
+                let colorValue = 1 - imgData[4 * i] / 255.0; // Subtracting s.t. color value is inversed
                 floatData[i] = colorValue;
             }
             let tensor = { input1: new ort.Tensor('float32', floatData, dims) };
             return tensor;
+        }
+
+        function softmax(arr) {
+            const max = Math.max(...arr);
+            const exps = arr.map(x => Math.exp(x - max));
+            const sum = exps.reduce((a, b) => a + b, 0);
+            return exps.map(x => x / sum);
         }
 
         async function runInference() {
@@ -137,7 +144,9 @@
             const feed = prepareImageDataForInference();
             try {
                 const results = await session.run(feed);
-                drawHistogram(results.output1.data);
+                const resultsAfterSoftmax = softmax(results.output1.data);
+                // console.log(feed);
+                drawHistogram(resultsAfterSoftmax);
             }
             catch (e) {
                 console.error('Error during inference:', e);
