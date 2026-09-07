@@ -13,11 +13,19 @@
         justify-content: center;
         align-items: center;
     } */
+
+    body {
+        background-color: #061049;
+    }
+
     .about-me {
-        max-width: 800px;
+        max-width: 40%;
         margin: 0 auto;
         padding: 0 20px;
+        border: #c2b53d;
+        background-color: #F7EBAB;
     }
+
     .contents {
         max-width: 800px;
         margin: 0 auto;
@@ -27,11 +35,13 @@
         border-style: ridge;
         border-radius: 30px;
     }
+
     .project-card {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border: 3px solid #ccc;
+        border: 3px solid #e8e57d;
+        background-color: #F7EBAB;
         padding: 20px;
         margin-bottom: 15px; /* Avstand mellom boksene */
         cursor: pointer;
@@ -40,6 +50,9 @@
     .project-info {
         flex: 1; /* Tar opp plassen som er igjen */
         padding-right: 20px;
+        color: #4C3509;
+        font-family: "Britannic Bold", "Britannic", sans-serif;
+        
     }
     .project-image {
         width: 150px; /* Fast bredde på bildeområdet */
@@ -57,7 +70,7 @@
 <head>
     <title>Kjetil portfolio</title>
 </head>
-<body style="background-color: aliceblue;">
+<body>
 
     <div class="title">
         <h2 style="text-align: center;">Velkommen til portefølje</h2>
@@ -68,9 +81,31 @@
             Studerer kognitiv vitenskap og maskinlæring. <br>
             Her er flere prosjekt jeg har lagd.</p>
     </div>
+
     <div class="contents">
         <h3>Prosjekter</h3>
         
+
+        <div class="project-card" onclick="redirect('./mnist/mnist.html')">
+            <div class="project-info">
+                <h3>MNIST med canvas</h3>
+                <p>Skriv et siffer for hånd og se hvilket siffer modellen predikerer at det er.</p>
+            </div>
+            <div class="project-image">
+                <img src="imgs/MNIST.png">
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-info">
+                <h3>(WIP) Object detection</h3>
+                <p>Last opp et bilde og modellen viser hvor i bildet den ser forskjellige objekt.</p>
+            </div>
+            <div class="project-image">
+                <img src="">
+            </div>
+        </div>
+
         <div class="project-card" onclick="redirect('./kalkulator/kalkulator.html')">
             <div class="project-info">
                 <h3>HTML-CSS-JavaScript Kalkulator</h3>
@@ -80,26 +115,7 @@
                 <img src="imgs/kalkulator.png">
             </div>
         </div>
-        
-        <div class="project-card" onclick="redirect('./mnist/mnist.html')">
-            <div class="project-info">
-                <h3>MNIST</h3>
-                <p>Min trente MNIST modell.</p>
-            </div>
-            <div class="project-image">
-                <img src="imgs/MNIST.png">
-            </div>
-        </div>
-        
-        <div class="project-card">
-            <div class="project-info">
-                <h3>RL aksje kjøper</h3>
-                <p>Ser historikk og enten kjøper, selger, eller venter.</p>
-            </div>
-            <div class="project-image">
-                <img src="">
-            </div>
-        </div>
+
 
     </div>
 
