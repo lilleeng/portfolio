@@ -15,7 +15,8 @@
     } */
 
     body {
-        background-color: #061049;
+        background-color: whitesmoke;
+        margin: 0px;
     }
 
     .about-me {
@@ -23,7 +24,8 @@
         margin: 0 auto;
         padding: 0 20px;
         border: #c2b53d;
-        background-color: #F7EBAB;
+        background-color: #061049;
+        color: whitesmoke;
     }
 
     .contents {
@@ -36,21 +38,22 @@
         border-radius: 30px;
     }
 
-    .project-card {
+    /* .project-card {
         display: flex;
         justify-content: space-between;
         align-items: center;
         border: 3px solid #e8e57d;
-        background-color: #F7EBAB;
+        background-color: #061049;
         padding: 20px;
-        margin-bottom: 15px; /* Avstand mellom boksene */
+        margin-bottom: 15px; 
         cursor: pointer;
         border-radius: 30px;
-    }
+    } */
+    
     .project-info {
         flex: 1; /* Tar opp plassen som er igjen */
         padding-right: 20px;
-        color: #4C3509;
+        color: whitesmoke;
         font-family: "Britannic Bold", "Britannic", sans-serif;
         
     }
@@ -60,11 +63,96 @@
         background-color: #eee; /* Plassholder hvis bilde mangler */
         flex-shrink: 0;
     }
+
     .project-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
+
+
+
+
+    .grid-container {
+        height: 100vh;
+        width: 100vw;
+
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .about-me-card {
+        width: 25%;
+        border-style: ridge; 
+        border-radius: 30px;
+        background-color: rgb(227, 227, 227);
+
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .about-me-card-content {
+        margin: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0px;
+
+        font-size: 18px;
+    }
+
+    .content-card {
+        height: 95%;
+        width: 65%;
+
+        display: grid;
+        grid-template-rows: 10% 90%;
+    }
+
+    .projects-container {
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-auto-flow: column;
+        align-items: center;
+        column-gap: 10px;
+    }
+
+    .tab-section {
+        background-color: green; 
+        height: 100%; 
+        width: 100%;
+    }
+
+    .project-card {
+        border-style: ridge; 
+        border-radius: 30px;
+        background-color: rgb(227, 227, 227);
+        cursor: pointer;
+
+        height: 90%;
+        width: 350px;
+
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .project-card-content {
+        margin: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0px;
+
+        font-size: 18px;
+    }
+
 </style>
 
 <head>
@@ -72,7 +160,61 @@
 </head>
 <body>
 
-    <div class="title">
+    <div class="grid-container">
+
+        <div class="about-me-card">
+            <div class="about-me-card-content">
+                <img src="./imgs/me.png" width="100%" style="border-radius: 50%; object-fit: cover;">
+                <h2>Hei!</h2>
+                <p>Jeg heter Kjetil. Er så og så gammel. Har studert kognitiv vitenskap og maskinlæring. Yadi yadi. Her viser jeg prosjekter jeg jobber med!</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="tab-section">
+                <h2>Home | More About Me</h2>
+            </div>
+
+
+            <!-- PROJECTS -->
+            <div class="projects-container">
+
+                <div class="project-card" onclick="redirect('./mnist/mnist.html')">
+                    <div class="project-card-content">
+                        <img src="imgs/MNIST.png" width="100%" style="object-fit: contain;">
+                        <h3>MNIST med canvas</h3>
+                        <p>Skriv et siffer for hånd og se hvilket siffer modellen predikerer at det er.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-card-content">
+                        <img src="" width="100%" style="object-fit: contain;">
+                        <h3>(WIP) Object detection</h3>
+                        <p>Last opp et bilde og modellen viser hvor i bildet den ser forskjellige objekt.</p>
+                    </div>
+                </div>
+
+                
+                <div class="project-card" onclick="redirect('./kalkulator/kalkulator.html')">
+                    <div class="project-card-content">
+                        <img src="imgs/kalkulator.png" width="100%" style="object-fit: contain;">
+                        <h3>HTML-CSS-JavaScript Kalkulator</h3>
+                        <p>Et lite prosjekt med formål om å lage en fungerende kalkulator med en interaktiv GUI med reagerende effekter for å få en følelse for hvordan HTML, CSS, og JavaScript fungerer.</p>
+                    </div>
+                </div>
+
+                <div class="project-card"></div>
+                <div class="project-card"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- <div class="title">
         <h2 style="text-align: center;">Velkommen til portefølje</h2>
     </div>
     <div class="about-me" style="border-style: ridge; border-radius: 30px;">
@@ -84,27 +226,7 @@
 
     <div class="contents">
         <h3>Prosjekter</h3>
-        
 
-        <div class="project-card" onclick="redirect('./mnist/mnist.html')">
-            <div class="project-info">
-                <h3>MNIST med canvas</h3>
-                <p>Skriv et siffer for hånd og se hvilket siffer modellen predikerer at det er.</p>
-            </div>
-            <div class="project-image">
-                <img src="imgs/MNIST.png">
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-info">
-                <h3>(WIP) Object detection</h3>
-                <p>Last opp et bilde og modellen viser hvor i bildet den ser forskjellige objekt.</p>
-            </div>
-            <div class="project-image">
-                <img src="">
-            </div>
-        </div>
 
         <div class="project-card" onclick="redirect('./kalkulator/kalkulator.html')">
             <div class="project-info">
@@ -117,7 +239,7 @@
         </div>
 
 
-    </div>
+    </div> -->
 
 </body>
 </html>
