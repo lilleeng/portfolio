@@ -13,6 +13,7 @@
     body {
         min-height: 100vh;
         font-family: 'Roboto', sans-serif;
+        color: #0d3232;
         background-color: whitesmoke;
         /* background-image: linear-gradient(
             to right,
@@ -41,6 +42,25 @@
         width: 250px;
         height: 50%;
         border-radius: 10px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+    }
+    .navbar3 {
+        height: 30px;
+        width: 30px;
+
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    .navbar img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
     }
 
 
@@ -74,23 +94,28 @@
     .about-me2 {
         margin: 5%;
         font-size: 24px;
-        color: #0f3b3b;
+        /* color: #0f3b3b; */
+        /* color: #0d3232; */
+        /* color: #061919; */
     }
 
 
     .content {
         /* margin-top: 100px; */
         /* background-image: linear-gradient(180deg, whitesmoke, gray); */
-        /* border-style: none solid none none; */
+        border: 5px;
+        border-style: none solid none none;
         border-color: brown;
+        /* border-right-style: 10px solid brown; */
         grid-column: 2;
-        margin-bottom: 100px;
+        /* margin-bottom: 100px; */
     }
 
 
     .recent-projects {
         font-size: 20px;
         margin-left: 50px;
+        margin-right: 50px;
         display: grid;
         grid-template-rows: auto;
         row-gap: 15px;
@@ -102,6 +127,21 @@
         display: flex;
         flex-direction: row; 
         align-items: center;
+
+        /* border: 1px solid brown; */
+        border-radius: 15px;
+        padding: 10px;
+
+        /* opacity: 0.6; */
+        transition: 0.3s; 
+    }
+    .project:hover {
+        background-color: #d86666;
+        /* border: 1px solid brown; */
+        border-radius: 15px;
+        padding: 10px;
+
+        /* opacity: 1; */
     }
     .project img {
         margin: 10px;
@@ -154,7 +194,18 @@
 <body>
 
     <div class="navbar">
-        <div class="navbar2"></div>
+        <div class="navbar2">
+            <div class="navbar3" title="Home" onclick="redirect('./index.html')">
+                <img src="./imgs/home-icon.svg" alt="Home">
+            </div>
+            <div class="navbar3" title="Projects" onclick="redirect('./projects.html')">
+                <img src="./imgs/folder-icon.svg" alt="Projects">
+            </div>
+            <div class="navbar3" title="CV" onclick="redirect('./cv.html')">
+                <img src="./imgs//CV-icon.svg" alt="CV">
+            </div>
+            
+        </div>
     </div>
 
     <div class="layout">
@@ -163,7 +214,7 @@
             <div class="about-me2">
                 <h2>Hei!</h2>
                 <img src="./imgs/me.jpg" width="100%" style="border-radius: 50%; object-fit: cover;">
-                <p>Kjetil, 26 år. Har studert kognitiv vitenskap og maskinlæring. Yadi yadi. Her viser jeg prosjekter jeg jobber med!</p>
+                <p>Kjetil, 26 år. Bachelor i Kognitiv Vitenskap. Yadi yadi. Her viser jeg prosjekter jeg jobber med!</p>
                 <p>Målet med denne siden er å bygge den helt for hånd, ingen copy-paste fra KI!</p>
             </div>
         </div>
@@ -227,6 +278,8 @@
                 </div>
 
             </div>
+
+            <div style="height: 100px;"></div>
 
             <!-- <div style="width: 50px; height: 2000px; background-color: green; margin: 50px;"></div> -->
 
