@@ -8,162 +8,233 @@
 </script>
 
 <style>
+    @import url('https://googleapis.com');
     
     body {
-        display: grid;
-        justify-items: center;
-        align-items: center;
+        min-height: 100vh;
+        font-family: 'Roboto', sans-serif;
+        background-color: whitesmoke;
+        /* background-image: linear-gradient(
+            to right,
+            white,
+            gray 5%
+        ); */
+        margin: 0px;
     }
 
-    .grid-container {
-        height: 100vh;
+    
+    .navbar {
+        /* background-color: gray; */
         width: 100%;
-        max-width: 1920px;
-        max-height: 1080px;
+        height: 100px;
+
+        position: fixed;
+        top: 0;
+        left: 0;
 
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
     }
+    .navbar2 {
+        background-color: brown;
+        width: 250px;
+        height: 50%;
+        border-radius: 10px;
+    }
 
-    .about-me-card {
-        width: 25%;
-        border-style: ridge; 
-        border-radius: 30px;
-        background-color: rgb(227, 227, 227);
+
+    .layout {
+        display: grid;
+        grid-template-columns: 25% 75%;
+        min-height: 100vh;
+        max-width: 1280px;
+        margin: 0 auto;
+        /* row-gap: 300px; */
+    }
+
+
+    .about-me {
+        background-color: brown;
+
+        position: fixed;
+        width: 320px;
+
+        height: 100vh;
 
         display: grid;
         justify-items: center;
         align-items: center;
     }
-
-    .content-card {
-        height: 95%;
-        width: 65%;
-
-        display: grid;
-        grid-template-rows: 10% 90%;
+    @media (max-width: 1280px) {
+        .about-me {
+            width: 25%;
+        }
+    }
+    .about-me2 {
+        margin: 5%;
+        font-size: 24px;
+        color: #0f3b3b;
     }
 
-    .project-card {
-        border-style: ridge; 
-        border-radius: 30px;
-        background-color: rgb(227, 227, 227);
+
+    .content {
+        /* margin-top: 100px; */
+        /* background-image: linear-gradient(180deg, whitesmoke, gray); */
+        /* border-style: none solid none none; */
+        border-color: brown;
+        grid-column: 2;
+        margin-bottom: 100px;
+    }
+
+
+    .recent-projects {
+        font-size: 20px;
+        margin-left: 50px;
+        display: grid;
+        grid-template-rows: auto;
+        row-gap: 15px;
+    }
+    .project {
+        height: 200px;
         cursor: pointer;
 
-        height: 90%;
-        width: 350px;
-
-        display: grid;
-        justify-items: center;
+        display: flex;
+        flex-direction: row; 
         align-items: center;
     }
+    .project img {
+        margin: 10px;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 10px;
+    }
 
-    .card-content {
-        margin: 10%;
+
+    .tools {
+        font-size: 20px;
+        margin-top: 150px;
+        margin-left: 50px;
+    }
+    .tools-display {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .tool {
+        max-height: 120px;
+        max-width: 120px;
+
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 0px;
 
+        border: 2px solid brown;
+        border-radius: 15px;
+        padding: 10px;
+    }
+    .tool img {
+        height: 100%;
+        object-fit: contain;
+    }
+    .tool h4 {
+        margin: 0px;
+        /* margin-bottom: 5px; */
+        margin-top: 5px;
         font-size: 18px;
     }
 
-    .projects-container {
-        height: 100%;
-        width: 100%;
-        overflow: auto;
-
-        display: grid;
-        grid-template-rows: 1fr;
-        grid-auto-flow: column;
-        align-items: center;
-        column-gap: 10px;
-    }
-
-    .navigation-bar {
-        height: 100%; 
-        width: 100%;
-
-        display: grid;
-        grid-auto-flow: column;
-        justify-content: space-evenly;
-    }
 
 </style>
 
 <head>
     <title>Kjetil portfolio</title>
 </head>
+
 <body>
 
-    
-    <div class="grid-container">
+    <div class="navbar">
+        <div class="navbar2"></div>
+    </div>
 
-        <div class="about-me-card">
-            <div class="card-content">
-                <img src="./imgs/me.png" width="100%" style="border-radius: 50%; object-fit: cover;">
+    <div class="layout">
+
+        <div class="about-me">
+            <div class="about-me2">
                 <h2>Hei!</h2>
-                <p>Jeg heter Kjetil. Er så og så gammel. Har studert kognitiv vitenskap og maskinlæring. Yadi yadi. Her viser jeg prosjekter jeg jobber med!</p>
+                <img src="./imgs/me.jpg" width="100%" style="border-radius: 50%; object-fit: cover;">
+                <p>Kjetil, 26 år. Har studert kognitiv vitenskap og maskinlæring. Yadi yadi. Her viser jeg prosjekter jeg jobber med!</p>
+                <p>Målet med denne siden er å bygge den helt for hånd, ingen copy-paste fra KI!</p>
             </div>
         </div>
 
-        <div class="content-card">
-            <div class="navigation-bar">
-                <h1>Home</h1>
-                <h1>|</h1>
-                <h1>More About Me</h1>
+        <div class="content">
+
+            <div style="height: 100px;"></div>
+            
+            <div class="recent-projects">
+
+                <h1>RECENT <br> PROJECTS</h1>
+                <div class="project" onclick="redirect('./mnist/mnist.html')">
+                    <img src="./imgs/mnist2.png">
+                    <h3>MNIST med lerrett</h3>
+                </div>
+                <div class="project">
+                    <img src="./imgs/object_localization.png">
+                    <h3>(WIP) Object Localization</h3>
+                </div>
+                <div class="project" onclick="redirect('./kalkulator/kalkulator.html')">
+                    <img src="./imgs/kalkulator-kvadrat.png">
+                    <h4>html Kalkulator</h4>
+                </div>
+
             </div>
 
+            <div class="tools">
+                <h1>TOOLS<br>I USE</h1>
 
-            <!-- PROJECTS -->
-            <div class="projects-container">
-
-                <div class="project-card" onclick="redirect('./mnist/mnist.html')">
-                    <div class="card-content">
-                        <img src="imgs/mnist.png" width="100%" style="object-fit: contain;">
-                        <h3>MNIST med canvas</h3>
-                        <p>Skriv et siffer for hånd og se hvilket siffer modellen predikerer at det er.</p>
+                <div class="tools-display">
+                    
+                    <div class="tool">
+                        <img src="./imgs/vscode-logo.svg.webp" alt="Vscode Logo">
+                        <h4>Vscode</h4>
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="card-content">
-                        <img src="" width="100%" style="object-fit: contain;">
-                        <h3>(WIP) Object detection</h3>
-                        <p>Last opp et bilde og modellen viser hvor i bildet den ser forskjellige objekt.</p>
+                    <div class="tool">
+                        <img src="./imgs/git-logo.svg" alt="Git Logo">
+                        <h4>Git</h4>
                     </div>
-                </div>
-
-                
-                <div class="project-card" onclick="redirect('./kalkulator/kalkulator.html')">
-                    <div class="card-content">
-                        <img src="imgs/kalkulator.png" width="100%" style="object-fit: contain;">
-                        <h3>HTML-CSS-JavaScript Kalkulator</h3>
-                        <p>Et lite prosjekt med formål om å lage en fungerende kalkulator med en interaktiv GUI med reagerende effekter for å få en følelse for hvordan HTML, CSS, og JavaScript fungerer.</p>
+                    <div class="tool">
+                        <img src="./imgs/Python-logo.svg.webp" alt="Python Logo" >
+                        <h4>Python</h4>
                     </div>
-                </div>
+                    <div class="tool">
+                        <img src="./imgs/java-logo.svg" alt="Java Logo">
+                        <h4>Java</h4>
+                    </div>
+                    <div class="tool">
+                        <img src="./imgs/html5-logo.webp" alt="Html Logo">
+                        <h4>html</h4>
+                    </div>
+                    <div class="tool">
+                        <img src="./imgs/css-3-logo.svg" alt="CSS Logo">
+                        <h4>CSS</h4>
+                    </div>
+                    <div class="tool">
+                        <img src="./imgs/JavaScript-logo.svg" alt="JavaScript Logo">
+                        <h4>JavaScript</h4>
+                    </div>
 
-                <div class="project-card"></div>
-                <div class="project-card"></div>
+                </div>
 
             </div>
+
+            <!-- <div style="width: 50px; height: 2000px; background-color: green; margin: 50px;"></div> -->
 
         </div>
-
     </div>
     
-
+    
     <script>
-        const container = document.querySelector('.projects-container');
-
-        container.addEventListener('wheel', (event) => {
-            // Prevent the default vertical page scroll
-            event.preventDefault();
-      
-            // Pass the vertical scroll delta into the horizontal scroll
-            container.scrollLeft += event.deltaY;
-            });
     </script>
 
 </body>

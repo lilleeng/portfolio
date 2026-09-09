@@ -11,8 +11,14 @@
     --numbersColor: #727778;
 }
 
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 div.container {
-    /* padding: 0px; */
     border-style: solid;
     border-radius: 10px;
     border-width: 0px;
