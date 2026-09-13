@@ -17,6 +17,7 @@
     
     body {
         min-height: 100vh;
+        
         font-family: 'Roboto', sans-serif;
         color: #0d3232;
         background-color: whitesmoke;
@@ -25,43 +26,44 @@
 
 
     .layout {
-        display: grid;
-        grid-template-columns: 25% 75%;
         min-height: 100vh;
         max-width: 1280px;
-        margin: 0 auto;
-        /* row-gap: 300px; */
-
+        
+        display: grid;
+        grid-template-columns: 25% 75%;
         grid-template-areas: 
         'navbar navbar'
         'about-me content';
+        
+        margin: 0 auto;
     }
 
     
     .navbar {
-        grid-area: navbar;
-
         width: 100%;
         height: 100px;
-        position: fixed;
-        top: 0;
-        left: 0;
-
+        
         display: flex;
         justify-content: center;
         align-items: center;
+        grid-area: navbar;
+        
+        position: fixed;
+        top: 0;
+        left: 0;
     }
     .navbar2 {
-        background-color: brown;
         width: 250px;
         height: 50%;
-        border-radius: 10px;
-        border: 2px solid whitesmoke;
-
+        
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
+
+        background-color: brown;
+        border-radius: 10px;
+        border: 2px solid whitesmoke;
     }
     .navbar3 {
         height: 30px;
@@ -79,53 +81,54 @@
     
 
     .about-me {
+        width: min(100%, 320px);
+        height: 100vh;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
         grid-area: about-me;
 
         background-color: brown;
         top: 0;
         position: sticky;
-        width: min(100%, 320px);
-        height: 100vh;
-
-        /* display: grid;
-        justify-items: center;
-        align-items: center; */
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
     .about-me2 {
         margin: 5%;
         font-size: 24px;
     }
-    /* .about-me img {
-        width: ;
-    } */
 
 
     .content {
         grid-area: content;
+        grid-column: 2;
+
         border: 10px;
         border-style: none solid none none;
         border-color: brown;
-        grid-column: 2;
+        
+        font-size: clamp(0.4rem, 5vw, 1.2rem);
+    }
+    .content > * {
+        margin-inline: 50px;
+    }
+    
+
+    .whitespace {
+        height: 100px;
     }
 
 
     .recent-projects {
-        font-size: 20px;
-        margin-left: 50px;
-        margin-right: 50px;
-
         display: grid;
         grid-template-rows: auto;
         row-gap: 15px;
     }
     .project {
-        height: 200px;
+        height: min(200px, 35vw);
+        width: 100%;
         cursor: pointer;
         border-radius: 15px;
-        padding: 10px;
 
         display: flex;
         flex-direction: row; 
@@ -136,20 +139,22 @@
     .project:hover {
         background-color: #d86666;
         border-radius: 15px;
-        padding: 10px;
     }
     .project img {
         margin: 10px;
-        height: 100%;
+        height: 90%;
         object-fit: contain;
         border-radius: 10px;
     }
-
+    #arrow-up-right {
+        margin-left: auto;
+        object-fit: contain;
+        width: min(40px, 7vw);
+    }
+    
 
     .tools {
-        font-size: 20px;
-        margin-top: 150px;
-        margin-left: 50px;
+        
     }
     .tools-display {
         display: flex;
@@ -175,16 +180,15 @@
     .tool h4 {
         margin: 0px;
         margin-top: 5px;
-        font-size: 18px;
     }
 
 
     .music {
-        font-size: 20px;
-        margin-top: 150px;
-        margin-left: 50px;
+        
     }
 
+
+    /* TABLET SIZE */
     @media (max-width: 900px) {
         .layout {
             grid-template-areas: 
@@ -192,44 +196,74 @@
             'navbar'
             'content';
             grid-template-columns: 1fr;
-
-            border: 10px;
-            border-style: none solid solid solid;
-            border-color: brown;
         }
 
         .about-me {
-            /* top: 0; */
             position: static;
             width: 100vw;
-            height: 25vh;
+            height: 400px;
         }
         .about-me2 {
-            /* display: flex;
-            flex-direction: row;
-            align-items: center; */
             display: grid;
             grid-template-areas: 
             'image header'
             'image paragraph';
-            column-gap: 2em;
+            column-gap: 1em;
+            margin: 2em;
         }
         #about-me-p2 {
             display: none;
         }
         .about-me img {
             grid-area: image;
-            width: max(20vh);
+            width: min(320px, 42vw);
         }
         .about-me2 h2 {
             grid-area: header;
-            /* grid-column: 2; */
             margin: 0px;
+            align-self: end;
         }
         .about-me2 p {
             grid-area: paragraph;
             margin: 0px;
-            /* grid-column: 2; */
+        }
+
+        .navbar {
+            top: 15px;
+            position: sticky;
+        }
+        .navbar2 {
+            height: 80%;
+            width: 450px;
+        }
+
+        .content {
+            border: none;
+            grid-column: 1;
+        }
+        .content > * {
+            margin-inline: 5%;
+        }
+    }
+
+    /* PHONE SIZE */
+    @media (max-width: 600px) {
+        .about-me {
+            height: 600px;
+        }
+        .about-me2 {
+            grid-template-areas: 
+            'image'
+            'header'
+            'paragraph';
+            row-gap: 0.5em;
+            justify-items: center;
+        }
+        .about-me img {
+            width: min(100%, 15em);
+        }
+        .about-me2 p {
+            text-align: center;
         }
 
         .navbar {
@@ -238,20 +272,10 @@
 
             top: 10px;
             position: sticky;
-            /* align-self: end; */
-            /* left: 0; */
         }
         .navbar2 {
-            width: min(450px, 80%);
-            height: 80%;
+            width: min(450px, 90%);
         }
-
-        .content {
-            border: 0px;
-            grid-column: 1;
-        }
-        
-        
     }
 
 
@@ -289,7 +313,7 @@
 
         <div class="content">
 
-            <div style="height: 100px;"></div>
+            <div class="whitespace"></div>
             
             <div class="recent-projects">
                 <h1>RECENT PROJECTS</h1>
@@ -297,16 +321,21 @@
                 <div class="project" onclick="redirect('./mnist/mnist.html')">
                     <img src="./imgs/mnist2.png">
                     <h3>MNIST med lerrett</h3>
+                    <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
                 </div>
                 <div class="project">
                     <img src="./imgs/object_localization.png">
                     <h3>(WIP) Object Localization</h3>
+                    <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
                 </div>
                 <div class="project" onclick="redirect('./kalkulator/kalkulator.html')">
                     <img src="./imgs/kalkulator-kvadrat.png">
                     <h4>html Kalkulator</h4>
+                    <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
                 </div>
             </div>
+
+            <div class="whitespace"></div>
 
             <div class="tools">
                 <h1>TOOLS I USE</h1>
@@ -345,6 +374,8 @@
                 </div>
             </div>
 
+            <div class="whitespace"></div>
+
             <div class="music">
                 <h1>FAVOURITE<br>MUSIC</h1>
 
@@ -353,7 +384,7 @@
                 </div>
             </div>
 
-            <div style="height: 100px;"></div>
+            <div class="whitespace"></div>
             <!-- <div style="width: 50px; height: 2000px; background-color: green; margin: 50px;"></div> -->
 
         </div>
