@@ -10,274 +10,10 @@
 <head>
     <title>Kjetil portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main-page-style.css">
 </head>
 
 <style>
-    @import url('https://googleapis.com');
-    
-    body {
-        min-height: 100vh;
-
-        font-family: 'Roboto', sans-serif;
-        color: #0d3232;
-        background-color: whitesmoke;
-        margin: 0px;
-    }
-
-
-    .layout {
-        min-height: 100vh;
-        max-width: 1080px;
-        
-        display: grid;
-        grid-template-columns: 25% 75%;
-        grid-template-areas: 
-        'navbar navbar'
-        'about-me content';
-        
-        margin: 0 auto;
-    }
-
-    
-    .navbar {
-        width: 100%;
-        height: 100px;
-        
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        grid-area: navbar;
-        
-        position: fixed;
-        top: 0;
-        left: 0;
-    }
-    .navbar2 {
-        width: 250px;
-        height: 50%;
-        
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-
-        background-color: brown;
-        border-radius: 10px;
-        border: 2px solid whitesmoke;
-    }
-    .navbar3 {
-        height: 30px;
-        width: 30px;
-
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-    }
-    .navbar img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: cover;
-    }
-    
-
-    .about-me {
-        width: min(100%, 320px);
-        height: 100vh;
-        
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        grid-area: about-me;
-
-        background-color: brown;
-        top: 0;
-        position: sticky;
-    }
-    .about-me2 {
-        margin: 5%;
-        font-size: 24px;
-    }
-
-
-    .content {
-        grid-area: content;
-        grid-column: 2;
-
-        border: 10px;
-        border-style: none solid none none;
-        border-color: brown;
-        
-        font-size: clamp(0.4rem, 5vw, 1.2rem);
-    }
-    .content > * {
-        margin-inline: 50px;
-    }
-    
-
-    .whitespace {
-        height: 100px;
-    }
-
-
-    .recent-projects {
-        display: grid;
-        grid-template-rows: auto;
-        row-gap: 15px;
-    }
-    .project {
-        height: min(200px, 35vw);
-        width: 100%;
-        cursor: pointer;
-        border-radius: 15px;
-
-        display: flex;
-        flex-direction: row; 
-        align-items: center;
-
-        transition: 0.2s; 
-    }
-    .project:hover {
-        background-color: #d86666;
-        border-radius: 15px;
-    }
-    .project img {
-        margin: 10px;
-        height: 90%;
-        object-fit: contain;
-        border-radius: 10px;
-    }
-    #arrow-up-right {
-        margin-left: auto;
-        object-fit: contain;
-        width: min(40px, 7vw);
-    }
-    
-
-    .tools {
-        
-    }
-    .tools-display {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-    .tool {
-        max-height: 120px;
-        max-width: 120px;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        border: 2px solid brown;
-        border-radius: 15px;
-        padding: 10px;
-    }
-    .tool img {
-        height: 100%;
-        object-fit: contain;
-    }
-    .tool h4 {
-        margin: 0px;
-        margin-top: 5px;
-    }
-
-
-    .music {
-        
-    }
-
-
-    /* TABLET SIZE */
-    @media (max-width: 900px) {
-        .layout {
-            grid-template-areas: 
-            'about-me'
-            'navbar'
-            'content';
-            grid-template-columns: 1fr;
-        }
-
-        .about-me {
-            position: static;
-            width: 100vw;
-            height: 400px;
-        }
-        .about-me2 {
-            display: grid;
-            grid-template-areas: 
-            'image header'
-            'image paragraph';
-            column-gap: 1em;
-            margin: 2em;
-        }
-        #about-me-p2 {
-            display: none;
-        }
-        .about-me img {
-            grid-area: image;
-            width: min(320px, 42vw);
-        }
-        .about-me2 h2 {
-            grid-area: header;
-            margin: 0px;
-            align-self: end;
-        }
-        .about-me2 p {
-            grid-area: paragraph;
-            margin: 0px;
-        }
-
-        .navbar {
-            top: 15px;
-            position: sticky;
-        }
-        .navbar2 {
-            height: 80%;
-            width: 450px;
-        }
-
-        .content {
-            border: none;
-            grid-column: 1;
-        }
-        .content > * {
-            margin-inline: 5%;
-        }
-    }
-
-    /* PHONE SIZE */
-    @media (max-width: 600px) {
-        .about-me {
-            height: 600px;
-        }
-        .about-me2 {
-            grid-template-areas: 
-            'image'
-            'header'
-            'paragraph';
-            row-gap: 0.5em;
-            justify-items: center;
-        }
-        .about-me img {
-            width: min(100%, 15em);
-        }
-        .about-me2 p {
-            text-align: center;
-        }
-
-        .navbar {
-            width: 100%;
-            height: 100px;
-
-            top: 10px;
-            position: sticky;
-        }
-        .navbar2 {
-            width: min(450px, 90%);
-        }
-    }
-
 
 </style>
 
@@ -314,9 +50,9 @@
         <div class="content">
 
             <div class="whitespace"></div>
-            
+            <h1>RECENT PROJECTS</h1>
+
             <div class="recent-projects">
-                <h1>RECENT PROJECTS</h1>
 
                 <div class="project" onclick="redirect('./mnist/mnist.html')">
                     <img src="./imgs/mnist2.png">
@@ -333,13 +69,13 @@
                     <h4>html Kalkulator</h4>
                     <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
                 </div>
+
             </div>
 
             <div class="whitespace"></div>
+            <h1>TOOLS I USE</h1>
 
             <div class="tools">
-                <h1>TOOLS I USE</h1>
-
                 <div class="tools-display">
                     
                     <div class="tool">
@@ -375,16 +111,17 @@
             </div>
 
             <div class="whitespace"></div>
+            <h1>FAVOURITE<br>MUSIC</h1>
 
             <div class="music">
-                <h1>FAVOURITE<br>MUSIC</h1>
+                
 
                 <div class="song-display">
 
                 </div>
             </div>
 
-            <div class="whitespace"></div>
+            <div class="whitespace" id="whitespace-final"></div>
             <!-- <div style="width: 50px; height: 2000px; background-color: green; margin: 50px;"></div> -->
 
         </div>

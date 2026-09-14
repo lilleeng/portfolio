@@ -17,36 +17,53 @@
     
     body {
         min-height: 100vh;
+
         font-family: 'Roboto', sans-serif;
         color: #0d3232;
         background-color: whitesmoke;
         margin: 0px;
     }
 
+
+    .layout {
+        min-height: 100vh;
+        max-width: 1080px;
+        
+        display: grid;
+        grid-template-columns: 25% 75%;
+        grid-template-areas: 
+        'navbar navbar'
+        'about-me content';
+        
+        margin: 0 auto;
+    }
+
     
     .navbar {
         width: 100%;
         height: 100px;
-
-        position: fixed;
-        top: 0;
-        left: 0;
-
+        
         display: flex;
         justify-content: center;
         align-items: center;
+        grid-area: navbar;
+        
+        position: fixed;
+        top: 0;
+        left: 0;
     }
     .navbar2 {
-        background-color: brown;
         width: 250px;
         height: 50%;
-        border-radius: 10px;
-        border: 2px solid whitesmoke;
-
+        
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
+
+        background-color: brown;
+        border-radius: 10px;
+        border: 2px solid whitesmoke;
     }
     .navbar3 {
         height: 30px;
@@ -61,68 +78,63 @@
         max-height: 100%;
         object-fit: cover;
     }
-
-
-    .layout {
-        display: grid;
-        grid-template-columns: 25% 75%;
-        min-height: 100vh;
-        max-width: 1280px;
-        margin: 0 auto;
-        /* row-gap: 300px; */
-    }
-
+    
 
     .about-me {
-        background-color: brown;
-
-        position: fixed;
-        /* width: 320px; */
-        width: min(25%, 320px);
-
+        width: min(100%, 320px);
         height: 100vh;
-
-        display: grid;
-        justify-items: center;
+        
+        display: flex;
+        justify-content: center;
         align-items: center;
+        grid-area: about-me;
+
+        background-color: brown;
+        top: 0;
+        position: sticky;
     }
-    /* @media (max-width: 1280px) {
-        .about-me {
-            width: 25%;
-        }
-    } */
     .about-me2 {
         margin: 5%;
         font-size: 24px;
-        /* color: #0f3b3b; */
-        /* color: #0d3232; */
-        /* color: #061919; */
     }
 
 
     .content {
-        /* background-image: linear-gradient(180deg, whitesmoke, gray); */
-        border: 5px;
+        grid-area: content;
+        grid-column: 2;
+
+        border: 10px;
         border-style: none solid none none;
         border-color: brown;
-        grid-column: 2;
+        
+        font-size: clamp(0.4rem, 5vw, 1.1rem);
+    }
+    .content > * {
+        margin-inline: 50px;
+    }
+    
+
+    .whitespace {
+        height: 100px;
+        width: calc(100% - 100px);
+
+        border: 2px;
+        border-style: none none solid none;
+        border-color:#0d3232;
+        
     }
 
 
     .recent-projects {
-        font-size: 20px;
-        margin-left: 50px;
-        margin-right: 50px;
-
         display: grid;
         grid-template-rows: auto;
         row-gap: 15px;
     }
     .project {
-        height: 200px;
+        height: min(200px, 35vw);
+        width: 100%;
         cursor: pointer;
         border-radius: 15px;
-        padding: 10px;
 
         display: flex;
         flex-direction: row; 
@@ -133,20 +145,22 @@
     .project:hover {
         background-color: #d86666;
         border-radius: 15px;
-        padding: 10px;
     }
     .project img {
         margin: 10px;
-        height: 100%;
+        height: 90%;
         object-fit: contain;
         border-radius: 10px;
     }
-
+    #arrow-up-right {
+        margin-left: auto;
+        object-fit: contain;
+        width: min(40px, 7vw);
+    }
+    
 
     .tools {
-        font-size: 20px;
-        margin-top: 150px;
-        margin-left: 50px;
+        
     }
     .tools-display {
         display: flex;
@@ -154,8 +168,10 @@
         gap: 20px;
     }
     .tool {
-        max-height: 120px;
-        max-width: 120px;
+        /* max-height: 120px; */
+        /* max-width: 120px; */
+        height: 100px;
+        width: 100px;
 
         display: flex;
         flex-direction: column;
@@ -166,20 +182,116 @@
         padding: 10px;
     }
     .tool img {
-        height: 100%;
+        height: 80px;
+        width: 80px;
+
+        /* height: 100%; */
+
         object-fit: contain;
     }
     .tool h4 {
         margin: 0px;
         margin-top: 5px;
-        font-size: 18px;
     }
 
 
     .music {
-        font-size: 20px;
-        margin-top: 150px;
-        margin-left: 50px;
+        
+    }
+
+
+    /* TABLET SIZE */
+    @media (max-width: 900px) {
+        .layout {
+            grid-template-areas: 
+            'about-me'
+            'navbar'
+            'content';
+            grid-template-columns: 1fr;
+        }
+
+        .about-me {
+            position: static;
+            width: 100vw;
+            height: 400px;
+        }
+        .about-me2 {
+            display: grid;
+            grid-template-areas: 
+            'image header'
+            'image paragraph';
+            column-gap: 1em;
+            margin: 2em;
+        }
+        #about-me-p2 {
+            display: none;
+        }
+        .about-me img {
+            grid-area: image;
+            width: min(320px, 42vw);
+        }
+        .about-me2 h2 {
+            grid-area: header;
+            margin: 0px;
+            align-self: end;
+        }
+        .about-me2 p {
+            grid-area: paragraph;
+            margin: 0px;
+        }
+
+        .navbar {
+            top: 15px;
+            position: sticky;
+        }
+        .navbar2 {
+            height: 80%;
+            width: 450px;
+        }
+
+        .content {
+            border: none;
+            grid-column: 1;
+        }
+        .content > * {
+            margin-inline: 5%;
+        }
+
+        .whitespace {
+            width: 90%;
+        }
+    }
+
+    /* PHONE SIZE */
+    @media (max-width: 600px) {
+        .about-me {
+            height: 600px;
+        }
+        .about-me2 {
+            grid-template-areas: 
+            'image'
+            'header'
+            'paragraph';
+            row-gap: 0.5em;
+            justify-items: center;
+        }
+        .about-me img {
+            width: min(100%, 15em);
+        }
+        .about-me2 p {
+            text-align: center;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 100px;
+
+            top: 10px;
+            position: sticky;
+        }
+        .navbar2 {
+            width: min(450px, 90%);
+        }
     }
 
 
@@ -187,55 +299,62 @@
 
 <body>
 
-    <div class="navbar">
-        <div class="navbar2">
-            <div class="navbar3" title="Home" onclick="redirect('./index.html')">
-                <img src="./imgs/home-icon.svg" alt="Home">
-            </div>
-            <div class="navbar3" title="Projects" onclick="redirect('./projects.html')">
-                <img src="./imgs/folder-icon.svg" alt="Projects">
-            </div>
-            <div class="navbar3" title="CV" onclick="redirect('./cv.html')">
-                <img src="./imgs//CV-icon.svg" alt="CV">
-            </div>
-            
-        </div>
-    </div>
+    
 
     <div class="layout">
 
+        <div class="navbar">
+            <div class="navbar2">
+                <div class="navbar3" title="Home" onclick="redirect('./index.html')">
+                    <img src="./imgs/home-icon.svg" alt="Home">
+                </div>
+                <div class="navbar3" title="Projects" onclick="redirect('./projects.html')">
+                    <img src="./imgs/folder-icon.svg" alt="Projects">
+                </div>
+                <div class="navbar3" title="CV" onclick="redirect('./cv.html')">
+                    <img src="./imgs//CV-icon.svg" alt="CV">
+                </div>
+                
+            </div>
+        </div>
+
         <div class="about-me">
             <div class="about-me2">
-                <h2>Hei!</h2>
                 <img src="./imgs/me.jpg" width="100%" style="border-radius: 50%; object-fit: cover;">
+                <h2>Hei!</h2>
                 <p>Kjetil, 26 år. Bachelor i Kognitiv Vitenskap. Yadi yadi. Her viser jeg prosjekter jeg jobber med!</p>
-                <p>Målet med denne siden er å bygge den helt for hånd, ingen copy-paste fra KI!</p>
+                <p id="about-me-p2">Målet med denne siden er å bygge den helt for hånd, ingen copy-paste fra KI!</p>
             </div>
         </div>
 
         <div class="content">
 
-            <div style="height: 100px;"></div>
+            <div class="whitespace"></div>
             
             <div class="recent-projects">
-                <h1>RECENT <br> PROJECTS</h1>
+                <h1>RECENT PROJECTS</h1>
 
                 <div class="project" onclick="redirect('./mnist/mnist.html')">
                     <img src="./imgs/mnist2.png">
                     <h3>MNIST med lerrett</h3>
+                    <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
                 </div>
                 <div class="project">
                     <img src="./imgs/object_localization.png">
                     <h3>(WIP) Object Localization</h3>
+                    <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
                 </div>
                 <div class="project" onclick="redirect('./kalkulator/kalkulator.html')">
                     <img src="./imgs/kalkulator-kvadrat.png">
                     <h4>html Kalkulator</h4>
+                    <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
                 </div>
             </div>
 
+            <div class="whitespace"></div>
+
             <div class="tools">
-                <h1>TOOLS<br>I USE</h1>
+                <h1>TOOLS I USE</h1>
 
                 <div class="tools-display">
                     
@@ -271,6 +390,8 @@
                 </div>
             </div>
 
+            <div class="whitespace"></div>
+
             <div class="music">
                 <h1>FAVOURITE<br>MUSIC</h1>
 
@@ -279,7 +400,7 @@
                 </div>
             </div>
 
-            <div style="height: 100px;"></div>
+            <div class="whitespace"></div>
             <!-- <div style="width: 50px; height: 2000px; background-color: green; margin: 50px;"></div> -->
 
         </div>

@@ -7,115 +7,79 @@
     }
 </script>
 
+<head>
+    <title>Kjetil CV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main-page-style.css">
+</head>
+
 <style>
-    @import url('https://googleapis.com');
     
-    body {
-        min-height: 100vh;
-
-        font-family: 'Roboto', sans-serif;
-        color: #0d3232;
-        background-color: whitesmoke;
-        margin: 0px;
-    }
-
-
-    .layout {
-        min-height: 100vh;
-        max-width: 1280px;
-        
-        display: grid;
-        grid-template-columns: 25% 75%;
-        grid-template-areas: 
-        'navbar navbar'
-        'about-me content';
-        
-        margin: 0 auto;
-    }
-
-    
-    .navbar {
-        width: 100%;
-        height: 100px;
-        
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        grid-area: navbar;
-        
-        position: fixed;
-        top: 0;
-        left: 0;
-    }
-    .navbar2 {
-        width: 250px;
-        height: 50%;
-        
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-
-        background-color: brown;
-        border-radius: 10px;
-        border: 2px solid whitesmoke;
-    }
-    .navbar3 {
-        height: 30px;
-        width: 30px;
-
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-    }
-    .navbar img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: cover;
-    }
-    
-
     .about-me {
-        width: min(100%, 320px);
-        height: 100vh;
-        
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        grid-area: about-me;
-
-        background-color: brown;
-        top: 0;
-        position: sticky;
-        border: 10px;
+        border: 5px;
         border-style: none solid none none;
-        border-color: whitesmoke;
-    }
-    .about-me2 {
-        margin: 5%;
-        font-size: 24px;
+        border-color: #0d3232;
     }
 
+    .navbar2 {
+        background-color: whitesmoke;
+    }
 
     .content {
-        grid-area: content;
-        grid-column: 2;
-
-        /* border: 10px;
-        border-style: none solid none none;
-        border-color: brown; */
         background-color: brown;
-
-        font-size: clamp(0.4rem, 5vw, 1.2rem);
     }
-    .content > * {
-        margin-inline: 50px;
+
+    .bento-grid {
+        display: grid;
+        gap: 1em;
+    }
+    #education-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: 
+        "box-1 box-1 box-2"
+        "box-1 box-1 box-2"
+        "box-3 box-4 box-5";
+    }
+    #work-experience-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        "box-1 box-1 box-1"
+        "box-2 box-3 box-4";
+    }
+    #languages-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+        "box-1 box-2 box-3";
+    }
+    #skills-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+        "box-1";
+    }
+    .bento-box {
+        background-color: #0d3232;
+        color: whitesmoke;
+        /* padding: 10px; */
+    }
+
+    /* TABLET SIZE */
+    @media (max-width: 900px) {
+
+        body {
+            background-color: brown;
+        }
+        .about-me {
+            border: 0px;
+        }
+        .navbar {
+            background-color: brown;
+        }
     }
     
-
-    .whitespace {
-        height: 100px;
-    }
 </style>
 
 <head>
@@ -152,11 +116,83 @@
         <div class="content">
 
             <div class="whitespace"></div>
-            
-            
+            <h1>EDUCATION</h1>
 
-            
+            <div class="bento-grid" id="education-grid">
 
+                <div class="bento-box" style="grid-area: box-1;">
+                    <h5>Bachelor i Kognitiv Vitenskap | Universitetet i Bergen | 2021-2026</h5>
+                    <p>Ett år ved bachelorprogram i Datavitenskap (2021), overgang til Kognitiv Vitenskap (2022), utvekslingsår i Yamanashi, Japan (2024).</p>
+                </div>
+                <div class="bento-box" style="grid-area: box-2;">
+                    <h5>International College of Liberal Arts, Yamanashi Universitet | 2024</h5>
+                    <p>Ett år utveksling til Japan. Blading av psykologi og informatikk fag.</p>
+                </div>
+                <div class="bento-box" style="grid-area: box-3;">
+                    <h5>Alta VGS | 2016-2020</h5>
+                    <p>Studiespesialisering i realfag.</p>
+                </div>
+                <div class="bento-box" style="grid-area: box-4;">
+                    <h5>AFS | 2018</h5>
+                    <p>Utvekslingsår til Japan. Urawa Gakuin Videregående.</p>
+                </div>
+                <div class="bento-box" style="grid-area: box-5;">
+                    <h5>Toneheim musikkfolkehøgskole, Piano | 2020</h5>
+                    <p>Klassisk piano og litt jazz.</p>
+                </div>
+
+            </div>
+
+            <div class="whitespace"></div>
+            <h1>WORK EXPERIENCE</h1>
+
+            <div class="bento-grid" id="work-experience-grid">
+
+                <div class="bento-box" style="grid-area: box-1;">
+                    <h5>Scandic hotels | Servitør og bartender | 2019-2026</h5>
+                    <p>Morgen- og kveldsskifte. Varierte oppgaver innen hotellet.</p>
+                </div>
+                <div class="bento-box" style="grid-area: box-2;">
+                    <h5>Gakori barneskole, lærerassistent</h5>
+                </div>
+                <div class="bento-box" style="grid-area: box-3;">
+                    <h5>Vaskeriet ved Aksis</h5>
+                </div>
+                <div class="bento-box" style="grid-area: box-4;">
+                    <h5>Alta kulturskole, musikklærer</h5>
+                </div>
+
+            </div>
+
+            <div class="whitespace"></div>
+            <h1>LANGUAGES</h1>
+
+            <div class="bento-grid" id="languages-grid">
+
+                <div class="bento-box" style="grid-area: box-1;">
+                    <h5>Norsk</h5>
+                </div>
+                <div class="bento-box" style="grid-area: box-2;">
+                    <h5>Engelsk</h5>
+                </div>
+                <div class="bento-box" style="grid-area: box-3;">
+                    <h5>Japansk</h5>
+                </div>
+
+            </div>
+
+            <div class="whitespace"></div>
+            <h1>SKILLS</h1>
+
+            <div class="bento-grid" id="skills-grid">
+
+                <div class="bento-box" style="grid-area: box-1;">
+                    <h5>Piano</h5>
+                </div>
+
+            </div>
+
+            <div class="whitespace" id="whitespace-final"></div>
         
 
             
