@@ -198,11 +198,11 @@ body {
 /* TABLET SIZE */
 @media (max-width: 900px) {
     .layout {
+        grid-template-columns: 1fr;
         grid-template-areas: 
         'about-me'
         'navbar'
         'content';
-        grid-template-columns: 1fr;
     }
 
     .about-me {
