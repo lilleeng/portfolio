@@ -15,18 +15,13 @@
 
 <style>
     
-    .about-me {
-        border: 5px;
-        border-style: none solid none none;
-        border-color: #0d3232;
-    }
-
     .navbar2 {
-        background-color: whitesmoke;
+        background-color: var(--light-color);
     }
 
     .content {
-        background-color: brown;
+        /* max-width: 100px; */
+        background-color: var(--colorful-color);
     }
 
     .bento-grid {
@@ -34,8 +29,8 @@
         gap: 1em;
     }
     #education-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: calc(33% - 0.5em) calc(33% - 0.5em) calc(33% - 0.5em);
+        grid-template-rows: auto auto auto;
         grid-template-areas: 
         "box-1 box-1 box-2"
         "box-1 box-1 box-2"
@@ -43,40 +38,111 @@
     }
     #work-experience-grid {
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: auto auto;
         grid-template-areas: 
         "box-1 box-1 box-1"
         "box-2 box-3 box-4";
     }
     #languages-grid {
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr;
+        grid-template-rows: auto;
         grid-template-areas: 
         "box-1 box-2 box-3";
     }
     #skills-grid {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
+        grid-template-rows: auto;
         grid-template-areas: 
         "box-1";
     }
     .bento-box {
-        background-color: #0d3232;
-        color: whitesmoke;
-        /* padding: 10px; */
+        background-color: var(--dark-color);
+        color: var(--light-color);
+        border-radius: 15px;
+        padding: 1em;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
+    .bento-box > * {
+        font-size: clamp(1.1rem, 1.75vw, 1.2rem);
+    }
+    .bento-box img {
+        width: min(250px, 60%);
+        max-height: 120px;
+
+        object-fit: contain;
+        border-radius: 15px;
+    }
+    .bento-box h2 {
+        color: #bcbe80;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
 
     /* TABLET SIZE */
     @media (max-width: 900px) {
 
         body {
-            background-color: brown;
+            /* background-color: brown; */
         }
         .about-me {
-            border: 0px;
+            /* border: 0px; */
         }
         .navbar {
             background-color: brown;
+        }
+
+        /* .bento-box img {
+            border-radius: 15px;
+        } */
+
+        #education-grid {
+            grid-template-columns: calc(50% - 0.5em) calc(50% - 0.5em);
+            grid-template-rows: auto;
+            grid-template-areas: 
+            "box-1 box-1"
+            "box-2 box-2"
+            "box-3 box-4" 
+            "box-5 box-5";
+        }
+    }
+
+    /* MOBILE SIZE */
+    @media (max-width: 600px) {
+        /* .bento-box > * {
+            font-size: clamp(1.05rem, 1.75vw, 1.2rem);
+        } */
+        #work-experience-grid {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: 
+            "box-1 box-1"
+            "box-2 box-3" 
+            "box-4 box-4";
+        }
+        #languages-grid {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: 
+            "box-1 box-1"
+            "box-2 box-3";
+        }
+    }
+
+    @media (max-width: 450px) {
+        #education-grid {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: 
+            "box-1"
+            "box-2"
+            "box-3" 
+            "box-4" 
+            "box-5";
         }
     }
     
@@ -102,7 +168,7 @@
 
         <div class="about-me">
             <div class="about-me2">
-                <img src="./imgs/me.jpg" width="100%" style="border-radius: 50%; object-fit: cover;">
+                <img src="./imgs/me.jpg">
                 <h2>Hei!</h2>
                 <p>Kjetil, 26 år. Bachelor i Kognitiv Vitenskap. Yadi yadi. Her viser jeg prosjekter jeg jobber med!</p>
                 <p id="about-me-p2">Målet med denne siden er å bygge den helt for hånd, ingen copy-paste fra KI!</p>
@@ -117,24 +183,39 @@
             <div class="bento-grid" id="education-grid">
 
                 <div class="bento-box" style="grid-area: box-1;">
-                    <h5>Bachelor i Kognitiv Vitenskap | Universitetet i Bergen | 2021-2026</h5>
-                    <p>Ett år ved bachelorprogram i Datavitenskap (2021), overgang til Kognitiv Vitenskap (2022), utvekslingsår i Yamanashi, Japan (2024).</p>
+                    <h2>Bachelor i Kognitiv Vitenskap | Universitetet i Bergen | 2021-2026</h2>
+                    <p>
+                        Ett år ved bachelorprogram for Datavitenskap (2021):<br><br>
+                        Python, datasikkerhet, logikk, matematikk.<br><br>
+                        Overgang til Kognitiv Vitenskap (2022):<br><br>
+                        Java, lingvistikk, logikk, haskell, intro til kognitiv vitenskap, algoritmer og datastrukturer.<br><br>
+                        Utvekslingsår i Yamanashi, Japan (2024) før returnering og fullføring av bachelor:<br><br>
+                        Sinnsfilosofi, kategoriteori, teoretisk algoritmer, multiprogrammering, språk og kognisjon, maskinlæring, dyplæring, forsterkningslæring.
+                    </p>
+                    <img src="./imgs/uib-logo.svg">
                 </div>
                 <div class="bento-box" style="grid-area: box-2;">
-                    <h5>International College of Liberal Arts, Yamanashi Universitet | 2024</h5>
-                    <p>Ett år utveksling til Japan. Blading av psykologi og informatikk fag.</p>
+                    <h2>Utveksling | iCLA ved Yamanashi Gakuin Universitet | 2024</h2>
+                    <p>
+                        Ett år utveksling til Yamanashi, Japan:<br><br>
+                        Intro til psykologi, psykobiologi, sosial psykologi, kognitiv psykologi, research design, maskinlæring.
+                    </p>
+                    <img src="./imgs/icla-logo.avif">
                 </div>
                 <div class="bento-box" style="grid-area: box-3;">
-                    <h5>Alta VGS | 2016-2020</h5>
+                    <h2>Alta VGS | 2016-2020</h2>
                     <p>Studiespesialisering i realfag.</p>
+                    <img src="./imgs/altavgs-logo.png">
                 </div>
                 <div class="bento-box" style="grid-area: box-4;">
-                    <h5>AFS | 2018</h5>
-                    <p>Utvekslingsår til Japan. Urawa Gakuin Videregående.</p>
+                    <h2>Utveksling | Urawa Gakuin Videregående | 2018</h2>
+                    <p>Utvekslingsår til Japan med AFS.</p>
+                    <img src="./imgs/uragaku-logo.png">
                 </div>
                 <div class="bento-box" style="grid-area: box-5;">
-                    <h5>Toneheim musikkfolkehøgskole, Piano | 2020</h5>
+                    <h2>Toneheim musikk folkehøgskole, Piano | 2020</h2>
                     <p>Klassisk piano og litt jazz.</p>
+                    <img src="./imgs/toneheim-logo.jpg">
                 </div>
 
             </div>
@@ -145,17 +226,20 @@
             <div class="bento-grid" id="work-experience-grid">
 
                 <div class="bento-box" style="grid-area: box-1;">
-                    <h5>Scandic hotels | Servitør og bartender | 2019-2026</h5>
-                    <p>Morgen- og kveldsskifte. Varierte oppgaver innen hotellet.</p>
+                    <h2>Scandic hotels | Servitør og bartender | 2019-2026</h2>
+                    <p>
+                        Jobbet sommer 2019, sommer 2021, sommer 2023, vinter 2024, sommer og høst 2025, vår og sommer 2026. Varierte oppgaver innen hotellet. Morgen- og kveldsskifte.
+                    </p>
+                    <img src="./imgs/scandic-logo.webp" style="border-radius: 0px;">
                 </div>
                 <div class="bento-box" style="grid-area: box-2;">
-                    <h5>Gakori barneskole, lærerassistent</h5>
+                    <h2>Lærerassistent | Gakori barneskole | 2024, 3 måneder</h2>
                 </div>
                 <div class="bento-box" style="grid-area: box-3;">
-                    <h5>Vaskeriet ved Aksis</h5>
+                    <h2>Vaskeriet ved Aksis | 2023, to uker</h2>
                 </div>
                 <div class="bento-box" style="grid-area: box-4;">
-                    <h5>Alta kulturskole, musikklærer</h5>
+                    <h2>Pianolærer | Alta kulturskole | 2021 en uke</h2>
                 </div>
 
             </div>
@@ -166,13 +250,22 @@
             <div class="bento-grid" id="languages-grid">
 
                 <div class="bento-box" style="grid-area: box-1;">
-                    <h5>Norsk</h5>
+                    <h2>Norsk</h2>
+                    <p>
+                        Morsmål.
+                    </p>
                 </div>
                 <div class="bento-box" style="grid-area: box-2;">
-                    <h5>Engelsk</h5>
+                    <h2>Engelsk</h2>
+                    <p>
+                        Flytende.
+                    </p>
                 </div>
                 <div class="bento-box" style="grid-area: box-3;">
-                    <h5>Japansk</h5>
+                    <h2>Japansk</h2>
+                    <p>
+                        Bestått JLPT N2.
+                    </p>
                 </div>
 
             </div>
@@ -183,7 +276,7 @@
             <div class="bento-grid" id="skills-grid">
 
                 <div class="bento-box" style="grid-area: box-1;">
-                    <h5>Piano</h5>
+                    <h2>Piano</h2>
                 </div>
 
             </div>

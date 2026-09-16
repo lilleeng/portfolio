@@ -8,12 +8,23 @@ STYLE SHEET FOR 'index'.
 
 @import url('https://googleapis.com');
 
+:root {
+    --light-color: #f9fad5;
+    /* --light-color: whitesmoke; */
+    --colorful-color: brown;
+    --lighter-colorful-color: #d86666;
+    --darker-colorful-color: #551616;
+    /* --dark-color: #0d3232; */
+    --dark-color: #092424;
+}
+
+
 body {
     min-height: 100vh;
 
     font-family: 'Roboto', sans-serif;
-    color: #0d3232;
-    background-color: whitesmoke;
+    color: var(--dark-color);
+    background-color: var(--light-color);
     margin: 0px;
 }
 
@@ -54,9 +65,9 @@ body {
     justify-content: space-around;
     align-items: center;
 
-    background-color: brown;
+    background-color: var(--colorful-color);
     border-radius: 10px;
-    border: 2px solid whitesmoke;
+    border: 2px solid var(--light-color);
 }
 .navbar3 {
     height: 30px;
@@ -82,13 +93,20 @@ body {
     align-items: center;
     grid-area: about-me;
 
-    background-color: brown;
+    background-color: var(--colorful-color);
     top: 0;
     position: sticky;
 }
 .about-me2 {
     margin: 5%;
     font-size: 24px;
+}
+.about-me img {
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+
+    border: 1px solid var(--darker-colorful-color);
 }
 
 
@@ -98,7 +116,7 @@ body {
 
     border: 5px;
     border-style: none solid none none;
-    border-color: brown;
+    border-color: var(--colorful-color);
     
     font-size: clamp(0.4rem, 5vw, 1.1rem);
 }
@@ -113,7 +131,7 @@ body {
 
     border: 2px;
     border-style: none none solid none;
-    border-color:#0d3232;
+    border-color:var(--dark-color);
 }
 #whitespace-final {
     border: 0px;
@@ -138,7 +156,7 @@ body {
     transition: 0.2s; 
 }
 .project:hover {
-    background-color: #d86666;
+    background-color: var(--lighter-colorful-color);
     border-radius: 15px;
 }
 .project img {
@@ -172,7 +190,7 @@ body {
     flex-direction: column;
     align-items: center;
 
-    border: 2px solid brown;
+    /* border: 2px solid var(--colorful-color); */
     border-radius: 15px;
     padding: 10px;
 }

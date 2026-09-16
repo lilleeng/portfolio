@@ -5,9 +5,9 @@ Link to view site: https://lilleeng.github.io/portfolio/
 * Make homepage resizeable and fit for mobile use ✅
 * Add up-right svg arrow to 'recent projects' cards ✅
 * Create common stylesheet ✅
-* Make 'CV' page
-* Make 'projects' page, tab for already made projects and tab for ideas?
-* Learn animations, between pages and such
+* Make 'CV' page - add images and make it look more nice. ✅
+* Make 'projects' page - tab for already made projects, tab for project ideas (?), paragraph with image explaining the page.
 * Fix MNIST page for mobile, add description of cnn model, train better model?
-* Add fade-out effect for scrolling content
 * Add 'favourite music'
+* Add fade-out effect for scrolling content
+* Learn animations, between pages and such

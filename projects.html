@@ -20,6 +20,8 @@
     }
 
     .layout {
+        max-width: 1280px;
+
         grid-template-columns: 1fr;
         grid-template-areas: 
         'navbar'
@@ -27,16 +29,19 @@
     }
 
     .navbar2 {
-        background-color: whitesmoke;
-        border-color: #0d3232;
+        background-color: var(--light-color);
+        border-color: var(--dark-color);
     }
 
     .content {
         grid-column: 1;
 
         min-height: 100vh;
-        background-color: #0d3232;
+        background-color: var(--dark-color);
         border: 0px;
+    }
+    .content > * {
+        margin-inline: 100px;
     }
 
 
@@ -51,14 +56,14 @@
 
         cursor: pointer;
         border-radius: 15px;
-        background-color: whitesmoke;
+        background-color: var(--light-color);
 
         display: grid;
 
         transition: 0.2s; 
     }
     .project-card:hover {
-        background-color: #d86666;
+        background-color: #bcbe80;
         border-radius: 15px;
     }
     .project-card img {
@@ -91,6 +96,8 @@
 
         <div class="content">
 
+            <div class="whitespace"></div>
+            <h1 style="color: var(--light-color);">Projects</h1>
             <div class="whitespace"></div>
 
             <div class="project-grid">
