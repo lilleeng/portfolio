@@ -8,6 +8,7 @@ Link to view site: https://lilleeng.github.io/portfolio/
 * Make 'CV' page - add images and make it look more nice. ✅
 * Make 'projects' page - tab for already made projects, tab for project ideas (?), paragraph with image explaining the page.
 * Fix MNIST page for mobile, add description of cnn model, train better model?
+* Change svg logo/icon colors
 * Add 'favourite music'
 * Add fade-out effect for scrolling content
 * Learn animations, between pages and such

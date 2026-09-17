@@ -14,23 +14,33 @@
 </head>
 
 <style>
-    
-    body {
-
-    }
 
     .layout {
-        max-width: 1280px;
+        /* max-width: 1280px; */
 
         grid-template-columns: 1fr;
         grid-template-areas: 
-        'navbar'
-        'content';
+        'intro';
+        /* 'navbar'
+        'content'; */
     }
 
     .navbar2 {
         background-color: var(--light-color);
         border-color: var(--dark-color);
+    }
+
+    .intro {
+        background-color: var(--dark-color);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        grid-area: intro;
+    }
+    .intro > * {
+        margin-inline: 100px;
     }
 
     .content {
@@ -44,33 +54,85 @@
         margin-inline: 100px;
     }
 
+    h1 {
+        color: var(--light-color);
+        font-size: 5rem;
+    }
+
+    .whitespace {
+        width: calc(100% - 200px);
+        border-color: var(--light-color);
+    }
 
     .project-grid {
+        margin-top: 30px;
+
         display: grid;
         grid-template-rows: auto;
-        row-gap: 15px;
+        row-gap: 25px;
+        align-items: center;
     }
     .project-card {
         min-height: 200px;
         width: 100%;
+        padding: 10px;
 
+        color: var(--light-color);
         cursor: pointer;
         border-radius: 15px;
-        background-color: var(--light-color);
-
+        
         display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: 200px;
+        column-gap: 3%;
+
+        align-items: center;
 
         transition: 0.2s; 
     }
     .project-card:hover {
-        background-color: #bcbe80;
+        background-color: var(--dark-color-light);
         border-radius: 15px;
     }
-    .project-card img {
-        margin: 10px;
-        height: 90%;
+    .project-card #thumbnail {
+        max-height: 100%;
+        max-width: 200px;
         object-fit: contain;
         border-radius: 10px;
+    }
+    .project-text-content {
+        
+    }
+    .project-text-content #title {
+        color: var(--light-color-dark);
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    .project-text-content #description {
+
+    }
+
+    @media (max-width: 900px) {
+        .layout {
+            grid-template-areas: 
+            'intro'
+            'navbar'
+            'content';
+        }
+        .navbar {
+            background-color: var(--dark-color);
+        }
+        .intro {
+            width: 100vw;
+            height: 400px;
+        }
+
+        .whitespace {
+            width: 90%;
+        }
+        .content > * {
+            margin-inline: 5%;
+        }
     }
 
     
@@ -94,51 +156,46 @@
             </div>
         </div>
 
+        <div class="intro">
+            <h1>Projects</h1>
+        </div>
+        
         <div class="content">
 
-            <div class="whitespace"></div>
-            <h1 style="color: var(--light-color);">Projects</h1>
             <div class="whitespace"></div>
 
             <div class="project-grid">
 
                 <div class="project-card" onclick="redirect('./mnist/mnist.html')">
-                    <h3>MNIST med lerrett</h3>
-                    <p>Tegn for hånd et siffer og ha en modell predikere hvilket siffer det er.</p>
-                    <img src="./imgs/mnist2.png">
-                    
+                    <img id="thumbnail" src="./imgs/mnist2.png">
+                    <div class="project-text-content">
+                        <h3 id="title">MNIST med lerrett</h3>
+                        <p id="description">Tegn for hånd et siffer og ha en modell predikere hvilket siffer det er.</p>
+                    </div>
                     <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
                 </div>
 
                 <div class="project-card" onclick="redirect('https://github.com/lilleeng/VIdeo-playlist-creator')">
-                    <h3>Video playlist creator</h3>
-                    <p>Input en mappe med lydfiler og et cover bilde, få en lang sammenhengende video eller flere individuelle.</p>
-                    
-                    <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
-                </div>
-
-                <div class="project-card" onclick="redirect('https://github.com/lilleeng/MatLagerSporer')">
-                    <h3>Matlagersporer</h3>
-                    <p>En sporer av matlagrer. Ment å knyttes til kassesystemene til butikker for registrering til sporeren. Over tid estimeres varene til å være brukt opp og en oversikt av disse vises til brukeren som da selv fjerner varene ettersom de faktisk er brukt opp.</p>
-                    
+                    <img id="thumbnail" src="./imgs/vpc1.png">
+                    <div class="project-text-content">
+                        <h3 id="title">Video playlist creator</h3>
+                        <p id="description">Input en mappe med lydfiler og et cover bilde, få en lang sammenhengende video eller flere individuelle.</p>
+                    </div>
                     <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
                 </div>
 
                 <div class="project-card" onclick="redirect('./kalkulator/kalkulator.html')">
-                    <h3>html Kalkulator</h3>
-                    <p>Et lite prosjekt for å bli kjent med html, css, og javascript.</p>
-                    <img src="./imgs/kalkulator-kvadrat.png" style="height: 100px;">
-                    
+                    <img id="thumbnail" src="./imgs/kalkulator-kvadrat.png">
+                    <div class="project-text-content">
+                        <h3 id="title">html Kalkulator</h3>
+                        <p id="description">Et lite prosjekt for å bli kjent med html, css, og javascript.</p>
+                    </div>
                     <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
                 </div>
 
             </div>
 
             <div class="whitespace" id="whitespace-final"></div>
-        
-
-            
-            <!-- <div style="width: 50px; height: 2000px; background-color: green; margin: 50px;"></div> -->
 
         </div>
 

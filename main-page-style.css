@@ -10,12 +10,14 @@ STYLE SHEET FOR 'index'.
 
 :root {
     --light-color: #f9fad5;
+    --light-color-dark: #bcbe80;
     /* --light-color: whitesmoke; */
     --colorful-color: brown;
     --lighter-colorful-color: #d86666;
     --darker-colorful-color: #551616;
     /* --dark-color: #0d3232; */
     --dark-color: #092424;
+    --dark-color-light : #145252;
 }
 
 
@@ -131,7 +133,7 @@ body {
 
     border: 2px;
     border-style: none none solid none;
-    border-color:var(--dark-color);
+    border-color: var(--dark-color);
 }
 #whitespace-final {
     border: 0px;
@@ -156,12 +158,13 @@ body {
     transition: 0.2s; 
 }
 .project:hover {
-    background-color: var(--lighter-colorful-color);
+    background-color: var(--light-color-dark);
     border-radius: 15px;
 }
 .project img {
     margin: 10px;
-    height: 90%;
+    max-height: 90%;
+    max-width: 180px;
     object-fit: contain;
     border-radius: 10px;
 }
