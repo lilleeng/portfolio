@@ -162,14 +162,16 @@ body {
     border-radius: 15px;
 }
 .project img {
-    margin: 10px;
     max-height: 90%;
     max-width: 180px;
+
     object-fit: contain;
     border-radius: 10px;
+    margin: 10px;
 }
 #arrow-up-right {
     margin-left: auto;
+    margin-right: 0;
     object-fit: contain;
     width: min(40px, 7vw);
 }
