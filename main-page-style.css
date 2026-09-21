@@ -49,40 +49,34 @@ body {
     width: 100%;
     height: 100px;
     
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-area: navbar;
-    
     position: fixed;
     top: 0;
     left: 0;
+
+    grid-area: navbar;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .navbar2 {
     width: 250px;
     height: 50%;
     
+    background-color: var(--colorful-color);
+    border-radius: 10px;
+    border: 2px solid var(--light-color);
+
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-
-    background-color: var(--colorful-color);
-    border-radius: 10px;
-    border: 2px solid var(--light-color);
-}
-.navbar3 {
-    height: 30px;
-    width: 30px;
-
-    display: flex;
-    align-items: center;
-    cursor: pointer;
 }
 .navbar img {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 30px;
+    max-height: 30px;
     object-fit: cover;
+    cursor: pointer;
 }
 
 
@@ -90,21 +84,23 @@ body {
     width: min(100%, 320px);
     height: 100vh;
     
-    display: flex;
-    justify-content: center;
-    align-items: center;
     grid-area: about-me;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
     background-color: var(--colorful-color);
     top: 0;
     position: sticky;
-}
-.about-me2 {
-    margin: 5%;
+
     font-size: 24px;
 }
+.about-me > * {
+    margin: 5%;
+}
 .about-me img {
-    width: 100%;
+    width: 90%;
     border-radius: 50%;
     object-fit: cover;
 
@@ -113,14 +109,14 @@ body {
 
 
 .content {
-    grid-area: content;
-    grid-column: 2;
-
     border: 5px;
     border-style: none solid none none;
     border-color: var(--colorful-color);
     
     font-size: clamp(0.4rem, 5vw, 1.1rem);
+    
+    grid-area: content;
+    grid-column: 2;
 }
 .content > * {
     margin-inline: 50px;
@@ -232,31 +228,22 @@ body {
         position: static;
         width: 100vw;
         height: 400px;
+
+        flex-direction: row;
+        align-items: center;
     }
-    .about-me2 {
-        display: grid;
-        grid-template-areas: 
-        'image header'
-        'image paragraph';
-        column-gap: 1em;
-        margin: 2em;
+    .about-me img {
+        width: min(320px, 42vw);
+
+        grid-area: image;
+    }
+    .text-content {
+        margin-left: 0;
     }
     #about-me-p2 {
         display: none;
     }
-    .about-me img {
-        grid-area: image;
-        width: min(320px, 42vw);
-    }
-    .about-me2 h2 {
-        grid-area: header;
-        margin: 0px;
-        align-self: end;
-    }
-    .about-me2 p {
-        grid-area: paragraph;
-        margin: 0px;
-    }
+
 
     .navbar {
         top: 15px;
@@ -284,28 +271,28 @@ body {
 @media (max-width: 600px) {
     .about-me {
         height: 600px;
-    }
-    .about-me2 {
-        grid-template-areas: 
-        'image'
-        'header'
-        'paragraph';
-        row-gap: 0.5em;
-        justify-items: center;
+
+        flex-direction: column;
+        align-items: center;
     }
     .about-me img {
-        width: min(100%, 15em);
+        width: min(80%, 15em);
+
+        margin: 5%;
+        margin-bottom: 0;
     }
-    .about-me2 p {
+    .text-content {
         text-align: center;
+        
+        margin: 5%;
+        margin-top: 0;
+    }
+    .text-content > * {
+        margin: 0.5em;
     }
 
     .navbar {
-        width: 100%;
-        height: 100px;
-
         top: 10px;
-        position: sticky;
     }
     .navbar2 {
         width: min(450px, 90%);

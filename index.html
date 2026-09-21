@@ -19,32 +19,24 @@
 
 <body>
 
-    
-
     <div class="layout">
 
         <div class="navbar">
             <div class="navbar2">
-                <div class="navbar3" title="Home" onclick="redirect('./index.html')">
-                    <img src="./imgs/home-icon.svg" alt="Home">
-                </div>
-                <div class="navbar3" title="Projects" onclick="redirect('./projects.html')">
-                    <img src="./imgs/folder-icon.svg" alt="Projects">
-                </div>
-                <div class="navbar3" title="CV" onclick="redirect('./cv.html')">
-                    <img src="./imgs//CV-icon.svg" alt="CV">
-                </div>
-                
+                <img src="./imgs/home-icon.svg" alt="Home" title="Home" onclick="redirect('./')">
+                <img src="./imgs/folder-icon.svg" alt="Projects" title="Projects" onclick="redirect('./projects.html')">
+                <img src="./imgs//CV-icon.svg" alt="CV" title="CV" onclick="redirect('./cv.html')">
             </div>
         </div>
 
         <div class="about-me">
-            <div class="about-me2">
-                <img src="./imgs/me.jpg">
+            <img src="./imgs/me.jpg">
+            <div class="text-content">
                 <h2>Hei!</h2>
                 <p>Kjetil, 26 år. Bachelor i Kognitiv Vitenskap. Yadi yadi. Her viser jeg prosjekter jeg jobber med!</p>
                 <p id="about-me-p2">Målet med denne siden er å bygge den helt for hånd, ingen copy-paste fra KI!</p>
             </div>
+            
         </div>
 
         <div class="content">
@@ -64,11 +56,6 @@
                     <h3>Video playlist creator</h3>
                     <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
                 </div>
-                <!-- <div class="project">
-                    <img src="./imgs/object_localization.png">
-                    <h3>(WIP) Object Localization</h3>
-                    <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
-                </div> -->
                 <div class="project" onclick="redirect('./kalkulator/kalkulator.html')">
                     <img src="./imgs/kalkulator-kvadrat.png">
                     <h3>html Kalkulator</h3>

@@ -1,0 +1,162 @@
+/* 
+BASIC STYLE SHEET FOR THE VARIOUS PROJECT PAGES.
+*/
+
+@import url('https://googleapis.com');
+
+:root {
+    --light-color: #f9fad5;
+    --light-color-dark: #bcbe80;
+    /* --light-color: whitesmoke; */
+    --colorful-color: brown;
+    --lighter-colorful-color: #d86666;
+    --darker-colorful-color: #551616;
+    /* --dark-color: #0d3232; */
+    --dark-color: #092424;
+    --dark-color-light : #145252;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: 'Roboto', sans-serif;
+    color: var(--light-color);
+    background-color: var(--light-color);
+    margin: 0px;
+}
+
+.layout {
+    min-height: 100vh;
+    max-width: 1080px;
+    
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    'intro'
+    'navbar'
+    'content';
+    
+    margin: 0 auto;
+}
+
+.intro {
+    height: 300px;
+
+    background-color: var(--dark-color);
+
+    grid-area: intro;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.intro > * {
+    margin-inline: 100px;
+}
+.intro h1 {
+    margin-top: 120px;
+    margin-bottom: 0;
+}
+
+.navbar {
+    width: 100%;
+    height: 100px;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    grid-area: navbar;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar2 {
+    width: 250px;
+    height: 50%;
+    
+    background-color: var(--light-color);
+    border-radius: 10px;
+    border: 2px solid var(--dark-color);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.navbar img {
+    max-width: 30px;
+    max-height: 30px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.content {
+    min-height: calc(100vh - 300px);
+
+    background-color: var(--dark-color);
+    font-size: clamp(0.4rem, 5vw, 1.2rem);
+
+    grid-area: content;    
+}
+.content > * {
+    margin-inline: 100px;
+}
+
+.whitespace {
+    height: 100px;
+    width: calc(100% - 200px);
+
+    border: 2px;
+    border-style: none none solid none;
+    border-color: var(--light-color);
+}
+#whitespace-final {
+    border: 0px;
+}
+
+h1 {
+    color: var(--light-color);
+    font-size: 5rem;
+}
+
+@media (max-width: 900px) {
+    .intro {
+        width: 100vw;
+        height: 400px;
+    }
+
+    .navbar {
+        top: 15px;
+        position: sticky;
+
+        background-color: var(--dark-color);
+    }
+    .navbar2 {
+        height: 80%;
+        width: 450px;
+    }
+
+    .content > * {
+        margin-inline: 5%;
+    }
+
+    .whitespace {
+        width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    .intro {
+        height: 600px;
+    }
+
+    .navbar {
+        top: 10px;
+    }
+    .navbar2 {
+        width: min(450px, 90%);
+    }
+}
+

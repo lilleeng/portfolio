@@ -16,8 +16,6 @@
 <style>
 
     .layout {
-        /* max-width: 1280px; */
-
         grid-template-columns: 1fr;
         grid-template-areas: 
         'intro'
@@ -25,19 +23,16 @@
         'content';
     }
 
-    .navbar2 {
-        background-color: var(--light-color);
-        border-color: var(--dark-color);
-    }
-
     .intro {
+        height: 300px;
+
         background-color: var(--dark-color);
+
+        grid-area: intro;
 
         display: flex;
         justify-content: center;
         align-items: center;
-
-        grid-area: intro;
     }
     .intro > * {
         margin-inline: 100px;
@@ -47,12 +42,18 @@
         margin-bottom: 0;
     }
 
-    .content {
-        grid-column: 1;
+    .navbar2 {
+        background-color: var(--light-color);
+        border-color: var(--dark-color);
+    }
 
-        min-height: 100vh;
+    .content {
+        min-height: calc(100vh - 300px);
+        
         background-color: var(--dark-color);
         border: 0px;
+
+        grid-column: 1;
     }
     .content > * {
         margin-inline: 100px;
@@ -155,16 +156,9 @@
 
         <div class="navbar">
             <div class="navbar2">
-                <div class="navbar3" title="Home" onclick="redirect('./index.html')">
-                    <img src="./imgs/home-icon.svg" alt="Home">
-                </div>
-                <div class="navbar3" title="Projects" onclick="redirect('./projects.html')">
-                    <img src="./imgs/folder-icon.svg" alt="Projects">
-                </div>
-                <div class="navbar3" title="CV" onclick="redirect('./cv.html')">
-                    <img src="./imgs//CV-icon.svg" alt="CV">
-                </div>
-                
+                <img src="./imgs/home-icon.svg" alt="Home" title="Home" onclick="redirect('./')">
+                <img src="./imgs/folder-icon.svg" alt="Projects" title="Projects" onclick="redirect('./projects.html')">
+                <img src="./imgs//CV-icon.svg" alt="CV" title="CV" onclick="redirect('./cv.html')">
             </div>
         </div>
 
