@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<script>
+    function redirect(href) {
+        window.location.href = href
+    }
+</script>
+
+<head>
+    <title>Post - Video playlist creator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../project-style.css">
+</head>
+
+<style>
+    .media-content {
+        display: flex;
+    }
+    .media-content img {
+        object-fit: contain; 
+        /* height: clamp(350px, 39vw, 400px); */
+    }
+    #demoimg1 {
+        height: min(400px, );
+    }
+    #demoimg2 {
+        width: 600px;
+    }
+    #demoimg3 {
+        width: 600px;
+    }
+    #demoimg4 {
+        width: 600px;
+    }
+
+    @media (max-width: 900px) {
+        .media-content {
+            flex-direction: column;
+        }
+        .media-content img {
+            height: clamp(350px, 70vw, 400px);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .media-content img {
+            /* height: ; */
+        }
+    }
+</style>
+
+<body>
+    <div class="layout">
+        <div class="navbar">
+            <div class="navbar2">
+                <img src="../../imgs/home-icon.svg" alt="Home" title="Home" onclick="redirect('../../')">
+                <img src="../../imgs/folder-icon.svg" alt="Projects" title="Projects" onclick="redirect('../../projects.html')">
+                <img src="../../imgs//CV-icon.svg" alt="CV" title="CV" onclick="redirect('../../cv.html')">
+            </div>
+        </div>
+
+        <div class="intro">
+            <h1>Video playlist creator</h1>
+        </div>
+
+        <div class="content">
+
+            <div class="whitespace"></div>
+
+            <p>
+                Tatsuro Yamashita er en artist som lager noe av favoritt musikken min. Men han er 
+                ikke fan av strømmeplatformer og nekter derfor å dele musikken sin der.
+                <br><br>
+                For å kunne ha hans musikk lett tilgjengelig på tvers av stasjonær, bærbar, og
+                mobil lagde jeg dette python skriptet for å kunne laste opp musikken på YouTube
+                (oppført som privat).
+                <br><br>
+                Under er en spilleliste jeg lagde fullstending med skriptet.
+            </p>
+
+            <!-- <div class="media-content">
+                <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube-nocookie.com/embed/videoseries?si=_NSiact-7jSx8jJg&amp;list=PL1GOE7X8hnPqN6JHMUgK7LJ2Ys63BZxFW" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                </iframe>
+            </div> -->
+            
+
+            <p>
+                <br>
+                (Sist gang jeg sjekket så virket ikke YouTube spillelisten ovenfor helt ordentlig på 
+                denne nettsiden men man kunne trykke seg inn på den allikevel for å se et 
+                eksempel).
+                <br><br>
+            </p>
+
+            <div class="whitespace"></div>
+            <h2>Hvordan det virker</h2>
+
+            <p>
+                Aktiver virtual environment, kjør skriptet, input directory for lydfiler og cover 
+                bilde.
+                <br><br>
+            </p>
+
+            <div class="media-content" style="gap: 10px;">
+                <img src="../imgs/vpc1.png" id="demoimg1" alt="Demonstrasjons bilde 1">
+                <img src="../imgs/vpc_in.png" id="demoimg1" alt="Demonstrasjon av input">
+            </div>
+            
+            <p>
+                <br>
+                Velg om den skal lage en lang sammenhengende video eller flere individuelle.
+                <br><br>
+            </p>
+
+            <div class="media-content">
+                <img src="../imgs/vpc2.png" id="demoimg2" alt="Demonstrasjons bilde 2">
+            </div>
+
+            <p>
+                <br>
+                Så velger man utput directory og skriptet kjører i vei.
+                <br><br>
+            </p>
+
+            <div class="media-content">
+                <img src="../imgs/vpc3.png" id="demoimg3" alt="Demonstrasjons bilde 3">
+            </div>
+
+            <p>
+                <br>
+                Og slik ser videoen ut som blir lagd:
+                <br><br>
+            </p>
+
+            <div class="media-content">
+                <img src="../imgs/vpc_out.png" id="demoimg4" alt="Demonstrasjon av utput">
+            </div>
+
+            <div class="whitespace" id="whitespace-final"></div>
+
+        </div>
+
+    </div>
+</body>
+</html>

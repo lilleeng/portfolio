@@ -104,6 +104,18 @@ body {
     margin-inline: 100px;
 }
 
+.media-content {
+    width: 100%;
+    margin-inline: initial;
+
+    background-color: var(--dark-color-light);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .whitespace {
     height: 100px;
     width: calc(100% - 200px);
@@ -140,6 +152,10 @@ h1 {
 
     .content > * {
         margin-inline: 5%;
+    }
+    
+    .media-content {
+        margin-inline: initial;
     }
 
     .whitespace {

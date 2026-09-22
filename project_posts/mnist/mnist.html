@@ -8,10 +8,10 @@
 </script>
 
 <head>
-    <title></title>
+    <title>Post - MNIST med lerrett</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
-    <link rel="stylesheet" href="../project-style.css">
+    <link rel="stylesheet" href="../../project-style.css">
 </head>
 
 <style>
@@ -19,9 +19,6 @@
     .container {
         padding: 30px;
         margin: 0 auto;
-
-        background: var(--dark-color-light);
-        box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
 
         display: flex;
         justify-content: center;
@@ -122,9 +119,9 @@
     <div class="layout">
         <div class="navbar">
             <div class="navbar2">
-                <img src="../imgs/home-icon.svg" alt="Home" title="Home" onclick="redirect('../')">
-                <img src="../imgs/folder-icon.svg" alt="Projects" title="Projects" onclick="redirect('../projects.html')">
-                <img src="../imgs//CV-icon.svg" alt="CV" title="CV" onclick="redirect('../cv.html')">
+                <img src="../../imgs/home-icon.svg" alt="Home" title="Home" onclick="redirect('../../')">
+                <img src="../../imgs/folder-icon.svg" alt="Projects" title="Projects" onclick="redirect('../../projects.html')">
+                <img src="../../imgs//CV-icon.svg" alt="CV" title="CV" onclick="redirect('../../cv.html')">
             </div>
         </div>
 
@@ -147,18 +144,23 @@
                 <br><br>
             </p>
 
-            <div class="container">
-                <div class="drawing-section">
-                    <canvas id='canvas' class="drawing-canvas" width="28" height="28"></canvas>
-                    <div class="drawing-board-controls">
-                        <button class="button" onclick="clearCanvas()">Empty</button>
+            <div class="media-content">
+
+                <div class="container">
+                    <div class="drawing-section">
+                        <canvas id='canvas' class="drawing-canvas" width="28" height="28"></canvas>
+                        <div class="drawing-board-controls">
+                            <button class="button" onclick="clearCanvas()">Empty</button>
+                        </div>
+                    </div>
+
+                    <div class="histogram-div">
+                        <canvas id="histogram" width="250" height="250"></canvas>
                     </div>
                 </div>
 
-                <div class="histogram-div">
-                    <canvas id="histogram" width="250" height="250"></canvas>
-                </div>
             </div>
+            
 
             <p>
                 <br><br>
