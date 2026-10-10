@@ -71,11 +71,12 @@
     .button:hover {
         color: var(--light-color);
     }
-
     .histogram-div {
         margin-top: 25px;
         /* border: 1px solid black; */
 
+        display: flex;
+        align-items: center;
         grid-area: histogram;
     }
 
@@ -134,11 +135,11 @@
             <div class="whitespace"></div>
 
             <p>
-                Under finner man på venstre side et lerrett man kan tegne på. Et convolutional 
-                neural network (CNN) prosesserer det som er tegnet på lerrettet for å gjette et 
-                siffer fra 0 til 9. Til høyre blir et histogram tegnet der modellens beregnete 
-                sannsynligheter for siffrene vises. Siffret med høyest sannsynlighet får en 
-                heltegnet søyle og representerer modellens gjett.<br><br>
+                Under er et lerrett man kan tegne på. 
+                En maskinlæringsmodell valgt fra menyen gjetter på hvilket av siffer som er 
+                tegnet. Til høyre viser et histogram modellens beregnete sannsynligheter. Siffret 
+                med høyest sannsynlighet får en heltegnet søyle og representerer modellens gjett.
+                <br><br>
 
                 Den vil alltid prøve å gjette et siffer selv om det bare er tegnet krusseduller.
                 <br><br>
@@ -148,6 +149,10 @@
 
                 <div class="container">
                     <div class="drawing-section">
+                        <select name="models" id="models" class="button">
+                            <option value="simple cnn">Simple CNN</option>
+                            <option value="deep cnn">Deep CNN</option>
+                        </select>
                         <canvas id='canvas' class="drawing-canvas" width="28" height="28"></canvas>
                         <div class="drawing-board-controls">
                             <button class="button" onclick="clearCanvas()">Empty</button>
@@ -161,10 +166,14 @@
 
             </div>
             
-
-            <p>
+            <div class="whitespace"></div>
+            <h2>
+                Om modellene
                 <br><br>
-                Modellen som brukes her er veldig enkel. Stukturen er slik:<br>
+            </h2>
+
+            <h3>Simple CNN</h3>
+            <p>
                 1. Convolutional lag, en utkanal, kernel størrelse 3x3, padding 1<br>
                 2. Flatten lag<br>
                 3. Fully connected lag, ut features 10 (siffrene)<br><br>
@@ -174,6 +183,23 @@
                 så 76.66% nøyaktighet.
             </p>
 
+            <h3>Deep CNN</h3>
+            <p>
+                1. Convolutional lag, 32 utkanaler, kernel størrelse 3x3, padding 1<br>
+                2. BatchNormalization lag<br>
+                3. ReLU aktiveringslag<br>
+                4. MaxPooling lag, kernel størrelse 2x2<br>
+                5. Convolutional lag, 64 utkanaler, kernel størrelse 3x3, padding 1<br>
+                6. BatchNormalization lag<br>
+                7. ReLU aktiveringslag<br>
+                8. MaxPooling lag, kernel størrelse 2x2<br>
+                9. Flatten lag<br>
+                10. Fully connected lag med 128 ut-features<br>
+                11. ReLU aktiveringslag<br>
+                12. Fully connected lag, ut features 10 (siffrene)<br><br>
+
+                På testing settet fikk denne modellen 98.41% nøyaktighet.
+            </p>
             <div class="whitespace" id="whitespace-final"></div>
 
         </div>

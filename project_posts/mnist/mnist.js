@@ -7,6 +7,7 @@ let session = null;
 const canvas = document.getElementById('canvas');
 const canvasCtx = canvas.getContext('2d');
 let isDrawing = false;
+const modelSelector = document.getElementById('models');
 
 showLoadingScreen();
 
@@ -14,10 +15,23 @@ showLoadingScreen();
 const histogram = document.querySelector("#histogram");
 const histogramCtx = histogram.getContext("2d");
 
-async function init() {
+async function loadSelectedModel() {
+    let selectedModel = modelSelector.value;
+    let modelWeightsPath;
+    switch (selectedModel) {
+        case "simple cnn":
+            modelWeightsPath = './simple_cnn.onnx';
+            break;
+        case "deep cnn":
+            modelWeightsPath = './deep_cnn.onnx';
+            break;
+        default:
+            console.error("Invalid model selected");
+            return;
+    }
     try {
-        session = await ort.InferenceSession.create('./mnist.onnx');
-        clearCanvas();  // clear when done loading
+        session = await ort.InferenceSession.create(modelWeightsPath);
+        runInference();
     }
     catch (e) {
         console.error(e);
@@ -251,4 +265,7 @@ canvas.addEventListener('touchmove', handleMove, { passive: false });
 canvas.addEventListener('touchend', stopDrawing);
 canvas.addEventListener('touchcancel', stopDrawing);
 
-init();
+// Add event listener for model selection
+modelSelector.addEventListener('change', loadSelectedModel);
+loadSelectedModel();
+clearCanvas();  // clear when done loading
