@@ -8,148 +8,14 @@
 </script>
 
 <head>
-    <title>Kjetil projects</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main-page-style.css">
-</head>
-
-<style>
-
-    .layout {
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-        'intro'
-        'navbar'
-        'content';
-    }
-
-    .intro {
-        height: 300px;
-
-        background-color: var(--dark-color);
-
-        grid-area: intro;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .intro > * {
-        margin-inline: 100px;
-    }
-    .intro h1 {
-        margin-top: 120px;
-        margin-bottom: 0;
-    }
-
-    .navbar2 {
-        background-color: var(--light-color);
-        border-color: var(--dark-color);
-    }
-
-    .content {
-        min-height: calc(100vh - 300px);
-        
-        background-color: var(--dark-color);
-        border: 0px;
-
-        grid-column: 1;
-    }
-    .content > * {
-        margin-inline: 100px;
-    }
-
-    h1 {
-        color: var(--light-color);
-        font-size: 5rem;
-    }
-
-    .whitespace {
-        width: calc(100% - 200px);
-        border-color: var(--light-color);
-    }
-
-    .project-grid {
-        margin-top: 30px;
-
-        display: grid;
-        grid-template-rows: auto;
-        row-gap: 25px;
-        align-items: center;
-    }
-    .project-card {
-        min-height: 180px;
-        width: 100%;
-
-        color: var(--light-color);
-        cursor: pointer;
-        border-radius: 15px;
-
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-
-        transition: 0.2s; 
-    }
-    .project-card:hover {
-        background-color: var(--dark-color-light);
-        border-radius: 15px;
-    }
-    .project-card #thumbnail {
-        max-height: 90%;
-        width: min(180px, 33vw);
-        
-        object-fit: contain;
-        border-radius: 10px;
-        margin: 10px;
-    }
-    .project-text-content {
-        
-    }
-    .project-text-content #title {
-        color: var(--light-color-dark);
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-    .project-text-content #description {
-
-    }
-    #arrow-up-right {
-        justify-self: flex-end;
-        align-self: flex-start;
-    }
-
-    @media (max-width: 900px) {
-        .layout {
-            grid-template-areas: 
-            'intro'
-            'navbar'
-            'content';
-        }
-        .navbar {
-            background-color: var(--dark-color);
-        }
-        .intro {
-            width: 100vw;
-            height: 400px;
-        }
-
-        .whitespace {
-            width: 90%;
-        }
-        .content > * {
-            margin-inline: 5%;
-        }
-    }
-
-    @media (max-width: 600px) {
-        .intro {
-            height: 600px;
-        }
-    }
-
+    <meta charset="UTF-8">
+    <meta name="description" content="Kjetil's projects portfolio.">
+    <meta name="author" content="Kjetil">
+    <title>Kjetil | Projects</title>
     
-</style>
+    <link rel="stylesheet" href="projects.css">
+</head>
 
 <body>
     <div class="layout">
@@ -198,6 +64,8 @@
                     </div>
                     <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
                 </div>
+
+                <!-- <div style="width: 50px; height: 2000px; background-color: green; margin: 50px;"></div> -->
 
             </div>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="no">
 
 <script>
     function redirect(href) {
@@ -8,118 +8,123 @@
 </script>
 
 <head>
-    <title>Kjetil portfolio</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main-page-style.css">
+    <meta name="description" content="Kjetil's personal website showcasing projects and skills.">
+    <meta name="author" content="Kjetil">
+    <title>Kjetil</title>
+
+    <link rel="stylesheet" href="main-page.css">
 </head>
-
-<style>
-
-</style>
 
 <body>
 
-    <div class="layout">
+    <!-- <div class="grid-stack-container">
+        <canvas id="background-canvas" class="grid-layer-background" aria-hidden="true"></canvas>
 
-        <div class="navbar">
-            <div class="navbar2">
-                <img src="./imgs/home-icon.svg" alt="Home" title="Home" onclick="redirect('./')">
-                <img src="./imgs/folder-icon.svg" alt="Projects" title="Projects" onclick="redirect('./projects.html')">
-                <img src="./imgs//CV-icon.svg" alt="CV" title="CV" onclick="redirect('./cv.html')">
-            </div>
-        </div>
+        <div class="grid-layer-foreground"> -->
 
-        <div class="about-me">
-            <img src="./imgs/me.jpg">
-            <div class="text-content">
-                <h2>Hei!</h2>
-                <p>Kjetil, 26 år. Bachelor i Kognitiv Vitenskap. Yadi yadi. Her viser jeg prosjekter jeg jobber med!</p>
-                <p id="about-me-p2">Målet med denne siden er å bygge den helt for hånd, ingen copy-paste fra KI!</p>
-            </div>
-        </div>
+            <div class="layout">
 
-        <div class="content">
-
-            <div class="whitespace"></div>
-            <h1>RECENT PROJECTS</h1>
-
-            <div class="recent-projects">
-
-                <div class="project" onclick="redirect('./project_posts/mnist/mnist.html')">
-                    <img src="./imgs/mnist2.png">
-                    <h3>MNIST med lerrett</h3>
-                    <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
-                </div>
-                <div class="project" onclick="redirect('./project_posts/video_playlist_creator.html')">
-                    <img src="./imgs/vpc1.png">
-                    <h3>Video playlist creator</h3>
-                    <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
-                </div>
-                <div class="project" onclick="redirect('./project_posts/kalkulator/kalkulator.html')">
-                    <img src="./imgs/kalkulator-kvadrat.png">
-                    <h3>html Kalkulator</h3>
-                    <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
+                <div class="navbar">
+                    <div class="navbar2">
+                        <img src="./imgs/home-icon.svg" alt="Home" title="Home" onclick="redirect('./')">
+                        <img src="./imgs/folder-icon.svg" alt="Projects" title="Projects" onclick="redirect('./projects.html')">
+                        <img src="./imgs//CV-icon.svg" alt="CV" title="CV" onclick="redirect('./cv.html')">
+                    </div>
                 </div>
 
-            </div>
+                <div class="about-me">
+                    <img src="./imgs/me.jpg">
+                    <div class="text-content">
+                        <h2>Hei!</h2>
+                        <p>Kjetil, 26 år. Bachelor i Kognitiv Vitenskap. Her viser jeg prosjekter jeg jobber med!</p>
+                        <!-- <p id="about-me-p2">Målet med denne siden er å bygge den helt for hånd, ingen copy-paste fra KI!</p> -->
+                    </div>
+                </div>
 
-            <div class="whitespace"></div>
-            <h1>TOOLS I USE</h1>
+                <div class="content">
 
-            <div class="tools">
-                <div class="tools-display">
-                    
-                    <div class="tool">
-                        <img src="./imgs/vscode-logo.svg.webp" alt="Vscode Logo">
-                        <h4>Vscode</h4>
+                    <div class="whitespace"></div>
+                    <h1>RECENT PROJECTS</h1>
+
+                    <div class="recent-projects">
+
+                        <div class="project" onclick="redirect('./project_posts/mnist/mnist.html')">
+                            <img src="./imgs/mnist2.png">
+                            <h3>MNIST med lerrett</h3>
+                            <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
+                        </div>
+                        <div class="project" onclick="redirect('./project_posts/video_playlist_creator.html')">
+                            <img src="./imgs/vpc1.png">
+                            <h3>Video playlist creator</h3>
+                            <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
+                        </div>
+                        <div class="project" onclick="redirect('./project_posts/kalkulator/kalkulator.html')">
+                            <img src="./imgs/kalkulator-kvadrat.png">
+                            <h3>html Kalkulator</h3>
+                            <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
+                        </div>
+
                     </div>
-                    <div class="tool">
-                        <img src="./imgs/git-icon.webp" alt="Git Logo">
-                        <h4>Git</h4>
+
+                    <div class="whitespace"></div>
+                    <h1>TOOLS I USE</h1>
+
+                    <div class="tools">
+                        <div class="tools-display">
+                            
+                            <div class="tool">
+                                <img src="./imgs/vscode-logo.svg.webp" alt="Vscode Logo">
+                                <h4>Vscode</h4>
+                            </div>
+                            <div class="tool">
+                                <img src="./imgs/git-icon.webp" alt="Git Logo">
+                                <h4>Git</h4>
+                            </div>
+                            <div class="tool">
+                                <img src="./imgs/Python-logo.svg.webp" alt="Python Logo" >
+                                <h4>Python</h4>
+                            </div>
+                            <div class="tool">
+                                <img src="./imgs/java-logo.svg" alt="Java Logo">
+                                <h4>Java</h4>
+                            </div>
+                            <div class="tool">
+                                <img src="./imgs/html5-logo.webp" alt="Html Logo">
+                                <h4>html</h4>
+                            </div>
+                            <div class="tool">
+                                <img src="./imgs/css-3-logo.svg" alt="CSS Logo">
+                                <h4>CSS</h4>
+                            </div>
+                            <div class="tool">
+                                <img src="./imgs/JavaScript-logo.svg" alt="JavaScript Logo">
+                                <h4>JavaScript</h4>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="tool">
-                        <img src="./imgs/Python-logo.svg.webp" alt="Python Logo" >
-                        <h4>Python</h4>
-                    </div>
-                    <div class="tool">
-                        <img src="./imgs/java-logo.svg" alt="Java Logo">
-                        <h4>Java</h4>
-                    </div>
-                    <div class="tool">
-                        <img src="./imgs/html5-logo.webp" alt="Html Logo">
-                        <h4>html</h4>
-                    </div>
-                    <div class="tool">
-                        <img src="./imgs/css-3-logo.svg" alt="CSS Logo">
-                        <h4>CSS</h4>
-                    </div>
-                    <div class="tool">
-                        <img src="./imgs/JavaScript-logo.svg" alt="JavaScript Logo">
-                        <h4>JavaScript</h4>
-                    </div>
+
+                    <!-- <div class="whitespace"></div>
+                    <h1>FAVOURITE<br>MUSIC</h1>
+
+                    <div class="music">
+                        
+                        <div class="song-display">
+
+                        </div>
+                    </div> -->
+
+                    <div class="whitespace" id="whitespace-final"></div>
+                    <!-- <div style="width: 50px; height: 2000px; background-color: green; margin: 50px;"></div> -->
 
                 </div>
             </div>
 
-            <div class="whitespace"></div>
-            <h1>FAVOURITE<br>MUSIC</h1>
+        <!-- </div>
 
-            <div class="music">
-                
-                <div class="song-display">
-
-                </div>
-            </div>
-
-            <div class="whitespace" id="whitespace-final"></div>
-            <!-- <div style="width: 50px; height: 2000px; background-color: green; margin: 50px;"></div> -->
-
-        </div>
-    </div>
-    
-    
-    <script>
-    </script>
+    </div> -->
 
 </body>
 </html>

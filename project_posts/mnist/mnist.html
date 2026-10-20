@@ -53,10 +53,9 @@
     .button {
         width: 200px;
         height: 40px;
+        
         border: none;
         border-radius: 25px;
-        /* padding: 10px 118px; */
-        /* padding: 10px; */
         margin: 10px 10px;
 
         background-color: var(--dark-color);
@@ -92,7 +91,6 @@
             grid-template-areas: 
             "histogram"
             "drawing-section";
-            /* justify-content: center; */
             
             gap: 10px;
         }
@@ -107,10 +105,6 @@
         .drawing-canvas {
             width: min(300px, 90%);
         }
-
-        /* .histogram-div {
-            width: min(250px, 80%);
-        } */
     }
 
 </style>
@@ -135,14 +129,12 @@
             <div class="whitespace"></div>
 
             <p>
-                Under er et lerrett man kan tegne på. 
-                En maskinlæringsmodell valgt fra menyen gjetter på hvilket av siffer som er 
-                tegnet. Til høyre viser et histogram modellens beregnete sannsynligheter. Siffret 
-                med høyest sannsynlighet får en heltegnet søyle og representerer modellens gjett.
+                Her er et lerret. Drop-down menyen har to modeller for maskinlæring (KI) jeg har 
+                laget og trent til å gjøre en sannsynlighetsberegning av hvilket siffer som er 
+                tegnet. Til høyre viser et histogram hvilke beregninger modellen har gjort. 
                 <br><br>
-
-                Den vil alltid prøve å gjette et siffer selv om det bare er tegnet krusseduller.
-                <br><br>
+                Modellen vil foreløpig alltid prøve å finne fram til et siffer selv om det som er 
+                tegnet ikke ligner på noe tall.
             </p>
 
             <div class="media-content">

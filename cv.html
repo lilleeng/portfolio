@@ -8,145 +8,14 @@
 </script>
 
 <head>
-    <title>Kjetil CV</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main-page-style.css">
+    <meta name="description" content="Kjetil's CV showcasing education, work experience, languages, and skills.">
+    <meta name="author" content="Kjetil">
+    <title>Kjetil | CV</title>
+    
+    <link rel="stylesheet" href="cv.css">
 </head>
-
-<style>
-    
-    .navbar2 {
-        background-color: var(--light-color);
-    }
-
-    .content {
-        /* max-width: 100px; */
-        background-color: var(--colorful-color);
-    }
-
-    .bento-grid {
-        display: grid;
-        gap: 1em;
-    }
-    #education-grid {
-        grid-template-columns: calc(33% - 0.5em) calc(33% - 0.5em) calc(33% - 0.5em);
-        grid-template-rows: auto auto auto;
-        grid-template-areas: 
-        "box-1 box-1 box-2"
-        "box-1 box-1 box-2"
-        "box-3 box-4 box-5";
-    }
-    #work-experience-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto auto;
-        grid-template-areas: 
-        "box-1 box-1 box-1"
-        "box-2 box-3 box-4";
-    }
-    #languages-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto;
-        grid-template-areas: 
-        "box-1 box-2 box-3";
-    }
-    #skills-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        grid-template-areas: 
-        "box-1";
-    }
-    .bento-box {
-        background-color: var(--dark-color);
-        color: var(--light-color);
-        border-radius: 15px;
-        padding: 1em;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    .bento-box > * {
-        font-size: clamp(1.1rem, 1.75vw, 1.2rem);
-    }
-    .bento-box img {
-        width: min(250px, 60%);
-        max-height: 120px;
-
-        object-fit: contain;
-        border-radius: 15px;
-    }
-    .bento-box h2 {
-        color: var(--light-color-dark);
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-
-
-    /* TABLET SIZE */
-    @media (max-width: 900px) {
-
-        body {
-            /* background-color: brown; */
-        }
-        .about-me {
-            /* border: 0px; */
-        }
-        .navbar {
-            background-color: brown;
-        }
-
-        /* .bento-box img {
-            border-radius: 15px;
-        } */
-
-        #education-grid {
-            grid-template-columns: calc(50% - 0.5em) calc(50% - 0.5em);
-            grid-template-rows: auto;
-            grid-template-areas: 
-            "box-1 box-1"
-            "box-2 box-2"
-            "box-3 box-4" 
-            "box-5 box-5";
-        }
-    }
-
-    /* MOBILE SIZE */
-    @media (max-width: 600px) {
-        /* .bento-box > * {
-            font-size: clamp(1.05rem, 1.75vw, 1.2rem);
-        } */
-        #work-experience-grid {
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto;
-            grid-template-areas: 
-            "box-1 box-1"
-            "box-2 box-3" 
-            "box-4 box-4";
-        }
-        #languages-grid {
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto;
-            grid-template-areas: 
-            "box-1 box-1"
-            "box-2 box-3";
-        }
-    }
-
-    @media (max-width: 450px) {
-        #education-grid {
-            grid-template-columns: 1fr;
-            grid-template-rows: auto;
-            grid-template-areas: 
-            "box-1"
-            "box-2"
-            "box-3" 
-            "box-4" 
-            "box-5";
-        }
-    }
-    
-</style>
 
 <body>
     <div class="layout">
@@ -163,8 +32,8 @@
             <img src="./imgs/me.jpg">
             <div class="text-content">
                 <h2>Hei!</h2>
-                <p>Kjetil, 26 år. Bachelor i Kognitiv Vitenskap. Yadi yadi. Her viser jeg prosjekter jeg jobber med!</p>
-                <p id="about-me-p2">Målet med denne siden er å bygge den helt for hånd, ingen copy-paste fra KI!</p>
+                <p>Kjetil, 26 år. Bachelor i Kognitiv Vitenskap. Her viser jeg prosjekter jeg jobber med!</p>
+                <!-- <p id="about-me-p2">Målet med denne siden er å bygge den helt for hånd, ingen copy-paste fra KI!</p> -->
             </div>
         </div>
 

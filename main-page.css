@@ -1,78 +1,23 @@
-/*
+/**
+ * ============================================================================
+ * MAIN PAGE STYLESHEET (main-page.css)
+ * ============================================================================
+ * 
+ * Styles specific to the main page (index.html)
+ */
 
-STYLE SHEET FOR 'index'. 
-'cv' AND 'projects' ALSO USE THIS SHEET WITH SOME MODIFICATIONS.
-
-*/
-
-@import url('https://googleapis.com');
-
-:root {
-    --light-color: #f9fad5;
-    --light-color-dark: #bcbe80;
-    /* --light-color: whitesmoke; */
-    --colorful-color: brown;
-    --lighter-colorful-color: #d86666;
-    --darker-colorful-color: #551616;
-    /* --dark-color: #0d3232; */
-    --dark-color: #092424;
-    --dark-color-light : #145252;
-}
-
-body {
-    min-height: 100vh;
-
-    font-family: 'Roboto', sans-serif;
-    color: var(--dark-color);
-    background-color: var(--light-color);
-    margin: 0px;
-}
+@import './common.css';
 
 .layout {
-    min-height: 100vh;
-    max-width: 1080px;
-    
-    display: grid;
     grid-template-columns: 25% 75%;
     grid-template-areas: 
     'navbar navbar'
     'about-me content';
-    
-    margin: 0 auto;
 }
 
-.navbar {
-    width: 100%;
-    height: 100px;
-    
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    grid-area: navbar;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .navbar2 {
-    width: 250px;
-    height: 50%;
-    
     background-color: var(--colorful-color);
-    border-radius: 10px;
-    border: 2px solid var(--light-color);
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-.navbar img {
-    max-width: 30px;
-    max-height: 30px;
-    object-fit: cover;
-    cursor: pointer;
+    border-color: var(--light-color);
 }
 
 .about-me {
@@ -103,13 +48,6 @@ body {
 }
 
 .content {
-    border: 5px;
-    border-style: none solid none none;
-    border-color: var(--colorful-color);
-    
-    font-size: clamp(0.4rem, 5vw, 1.1rem);
-    
-    grid-area: content;
     grid-column: 2;
 }
 .content > * {
@@ -117,15 +55,8 @@ body {
 }
 
 .whitespace {
-    height: 100px;
     width: calc(100% - 100px);
-
-    border: 2px;
-    border-style: none none solid none;
     border-color: var(--dark-color);
-}
-#whitespace-final {
-    border: 0px;
 }
 
 .recent-projects {
@@ -157,13 +88,13 @@ body {
     border-radius: 10px;
     margin: 10px;
 }
+
 #arrow-up-right {
     margin-left: auto;
     margin-right: 0;
     object-fit: contain;
     width: min(40px, 7vw);
 }
-
 
 .tools {
     
@@ -199,12 +130,6 @@ body {
     margin: 0px;
     margin-top: 5px;
 }
-
-
-.music {
-    
-}
-
 
 /* TABLET SIZE */
 @media (max-width: 900px) {
