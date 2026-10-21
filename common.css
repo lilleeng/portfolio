@@ -28,6 +28,11 @@ body {
     margin: 0px;
 }
 
+#no-link-style {
+    text-decoration: none;
+    color: inherit;
+}
+
 .layout {
     min-height: 100vh;
     max-width: 1080px;

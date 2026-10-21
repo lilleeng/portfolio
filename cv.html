@@ -1,11 +1,5 @@
 <!DOCTYPE html>
-<html>
-
-<script>
-    function redirect(href) {
-        window.location.href = href
-    }
-</script>
+<html lang="no">
 
 <head>
     <meta charset="UTF-8">
@@ -22,9 +16,15 @@
 
         <div class="navbar">
             <div class="navbar2">
-                <img src="./imgs/home-icon.svg" alt="Home" title="Home" onclick="redirect('./')">
-                <img src="./imgs/folder-icon.svg" alt="Projects" title="Projects" onclick="redirect('./projects.html')">
-                <img src="./imgs//CV-icon.svg" alt="CV" title="CV" onclick="redirect('./cv.html')">
+                <a href="./">
+                    <img src="./imgs/home-icon.svg" alt="Home" title="Home">
+                </a>
+                <a href="./projects.html">
+                    <img src="./imgs/folder-icon.svg" alt="Projects" title="Projects">
+                </a>
+                <a href="./cv.html">
+                    <img src="./imgs/CV-icon.svg" alt="CV" title="CV">
+                </a>
             </div>
         </div>
 
@@ -33,7 +33,6 @@
             <div class="text-content">
                 <h2>Hei!</h2>
                 <p>Kjetil, 26 år. Bachelor i Kognitiv Vitenskap. Her viser jeg prosjekter jeg jobber med!</p>
-                <!-- <p id="about-me-p2">Målet med denne siden er å bygge den helt for hånd, ingen copy-paste fra KI!</p> -->
             </div>
         </div>
 

@@ -1,11 +1,5 @@
 <!DOCTYPE html>
-<html>
-
-<script>
-    function redirect(href) {
-        window.location.href = href
-    }
-</script>
+<html lang="no">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,9 +16,15 @@
 
         <div class="navbar">
             <div class="navbar2">
-                <img src="./imgs/home-icon.svg" alt="Home" title="Home" onclick="redirect('./')">
-                <img src="./imgs/folder-icon.svg" alt="Projects" title="Projects" onclick="redirect('./projects.html')">
-                <img src="./imgs//CV-icon.svg" alt="CV" title="CV" onclick="redirect('./cv.html')">
+                <a href="./">
+                    <img src="./imgs/home-icon.svg" alt="Home" title="Home">
+                </a>
+                <a href="./projects.html">
+                    <img src="./imgs/folder-icon.svg" alt="Projects" title="Projects">
+                </a>
+                <a href="./cv.html">
+                    <img src="./imgs/CV-icon.svg" alt="CV" title="CV">
+                </a>
             </div>
         </div>
 
@@ -38,32 +38,38 @@
 
             <div class="project-grid">
 
-                <div class="project-card" onclick="redirect('./project_posts/mnist/mnist.html')">
-                    <img id="thumbnail" src="./imgs/mnist2.png">
-                    <div class="project-text-content">
-                        <h3 id="title">MNIST med lerrett</h3>
-                        <p id="description">Tegn for hånd et siffer og ha en modell predikere hvilket siffer det er.</p>
+                <a href="./project_posts/mnist/mnist.html" id="no-link-style">
+                    <div class="project-card">
+                        <img id="thumbnail" src="./imgs/mnist2.png">
+                        <div class="project-text-content">
+                            <h3 id="title">MNIST med lerrett</h3>
+                            <p id="description">Tegn for hånd et siffer og ha en modell predikere hvilket siffer det er.</p>
+                        </div>
+                        <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
                     </div>
-                    <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
-                </div>
+                </a>
 
-                <div class="project-card" onclick="redirect('./project_posts/video_playlist_creator.html')">
-                    <img id="thumbnail" src="./imgs/vpc1.png">
-                    <div class="project-text-content">
-                        <h3 id="title">Video playlist creator</h3>
-                        <p id="description">Input en mappe med lydfiler og et cover bilde, få en lang sammenhengende video eller flere individuelle.</p>
+                <a href="./project_posts/video_playlist_creator.html" id="no-link-style">
+                    <div class="project-card">
+                        <img id="thumbnail" src="./imgs/vpc1.png">
+                        <div class="project-text-content">
+                            <h3 id="title">Video playlist creator</h3>
+                            <p id="description">Input en mappe med lydfiler og et cover bilde, få en lang sammenhengende video eller flere individuelle.</p>
+                        </div>
+                        <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
                     </div>
-                    <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
-                </div>
+                </a>
 
-                <div class="project-card" onclick="redirect('./project_posts/kalkulator/kalkulator.html')">
-                    <img id="thumbnail" src="./imgs/kalkulator-kvadrat.png">
-                    <div class="project-text-content">
-                        <h3 id="title">html Kalkulator</h3>
-                        <p id="description">Et lite prosjekt for å bli kjent med html, css, og javascript.</p>
+                <a href="./project_posts/kalkulator/kalkulator.html" id="no-link-style">
+                    <div class="project-card">
+                        <img id="thumbnail" src="./imgs/kalkulator-kvadrat.png">
+                        <div class="project-text-content">
+                            <h3 id="title">html Kalkulator</h3>
+                            <p id="description">Et lite prosjekt for å bli kjent med html, css, og javascript.</p>
+                        </div>
+                        <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
                     </div>
-                    <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
-                </div>
+                </a>
 
                 <!-- <div style="width: 50px; height: 2000px; background-color: green; margin: 50px;"></div> -->
 

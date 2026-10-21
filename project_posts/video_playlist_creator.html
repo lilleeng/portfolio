@@ -1,11 +1,5 @@
 <!DOCTYPE html>
-<html>
-
-<script>
-    function redirect(href) {
-        window.location.href = href
-    }
-</script>
+<html lang="no">
 
 <head>
     <meta charset="UTF-8">
@@ -48,11 +42,18 @@
 
 <body>
     <div class="layout">
+
         <div class="navbar">
             <div class="navbar2">
-                <img src="../../imgs/home-icon.svg" alt="Home" title="Home" onclick="redirect('../../')">
-                <img src="../../imgs/folder-icon.svg" alt="Projects" title="Projects" onclick="redirect('../../projects.html')">
-                <img src="../../imgs//CV-icon.svg" alt="CV" title="CV" onclick="redirect('../../cv.html')">
+                <a href="../">
+                    <img src="../imgs/home-icon.svg" alt="Home" title="Home">
+                </a>
+                <a href="../projects.html">
+                    <img src="../imgs/folder-icon.svg" alt="Projects" title="Projects">
+                </a>
+                <a href="../cv.html">
+                    <img src="../imgs/CV-icon.svg" alt="CV" title="CV">
+                </a>
             </div>
         </div>
 

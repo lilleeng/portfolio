@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="no">
 
-<script>
-    function redirect(href) {
-        window.location.href = href
-    }
-</script>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,9 +22,15 @@
 
                 <div class="navbar">
                     <div class="navbar2">
-                        <img src="./imgs/home-icon.svg" alt="Home" title="Home" onclick="redirect('./')">
-                        <img src="./imgs/folder-icon.svg" alt="Projects" title="Projects" onclick="redirect('./projects.html')">
-                        <img src="./imgs//CV-icon.svg" alt="CV" title="CV" onclick="redirect('./cv.html')">
+                        <a href="./">
+                            <img src="./imgs/home-icon.svg" alt="Home" title="Home">
+                        </a>
+                        <a href="./projects.html">
+                            <img src="./imgs/folder-icon.svg" alt="Projects" title="Projects">
+                        </a>
+                        <a href="./cv.html">
+                            <img src="./imgs/CV-icon.svg" alt="CV" title="CV">
+                        </a>
                     </div>
                 </div>
 
@@ -39,7 +39,6 @@
                     <div class="text-content">
                         <h2>Hei!</h2>
                         <p>Kjetil, 26 år. Bachelor i Kognitiv Vitenskap. Her viser jeg prosjekter jeg jobber med!</p>
-                        <!-- <p id="about-me-p2">Målet med denne siden er å bygge den helt for hånd, ingen copy-paste fra KI!</p> -->
                     </div>
                 </div>
 
@@ -50,21 +49,29 @@
 
                     <div class="recent-projects">
 
-                        <div class="project" onclick="redirect('./project_posts/mnist/mnist.html')">
-                            <img src="./imgs/mnist2.png">
-                            <h3>MNIST med lerrett</h3>
-                            <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
-                        </div>
-                        <div class="project" onclick="redirect('./project_posts/video_playlist_creator.html')">
-                            <img src="./imgs/vpc1.png">
-                            <h3>Video playlist creator</h3>
-                            <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
-                        </div>
-                        <div class="project" onclick="redirect('./project_posts/kalkulator/kalkulator.html')">
-                            <img src="./imgs/kalkulator-kvadrat.png">
-                            <h3>html Kalkulator</h3>
-                            <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
-                        </div>
+                        <a href="./project_posts/mnist/mnist.html" id="no-link-style">
+                            <div class="project">
+                                <img src="./imgs/mnist2.png">
+                                <h3>MNIST med lerrett</h3>
+                                <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
+                            </div>
+                        </a>
+
+                        <a href="./project_posts/video_playlist_creator.html" id="no-link-style">
+                            <div class="project">
+                                <img src="./imgs/vpc1.png">
+                                <h3>Video playlist creator</h3>
+                                <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
+                            </div>
+                        </a>
+
+                        <a href="./project_posts/kalkulator/kalkulator.html" id="no-link-style">
+                            <div class="project">
+                                <img src="./imgs/kalkulator-kvadrat.png">
+                                <h3>html Kalkulator</h3>
+                                <img id="arrow-up-right" src="./imgs/arrow-up-right.svg">
+                            </div>
+                        </a>
 
                     </div>
 
