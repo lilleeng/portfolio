@@ -31,6 +31,7 @@
     justify-content: center;
     
     background-color: var(--colorful-color);
+    color: var(--light-color);
     top: 0;
     position: sticky;
 

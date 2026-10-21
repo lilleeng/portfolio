@@ -31,6 +31,7 @@
     justify-content: center;
     
     background-color: var(--colorful-color);
+    color: var(--light-color);
     top: 0;
     position: sticky;
 
@@ -58,6 +59,10 @@
 .whitespace {
     width: calc(100% - 100px);
     border-color: var(--dark-color);
+}
+
+h1 {
+    color: var(--light-color);
 }
 
 .bento-grid {

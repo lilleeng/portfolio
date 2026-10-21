@@ -13,7 +13,6 @@ Link to view site: https://lilleeng.github.io/portfolio/
 * Fix issue with the Git and JavaScript logos not loading on the GitHub Page ✅
 * Made a better model for MNIST ✅
 * Fix "layout leakage" around the navbar in tablet/mobile when scrolled down
-* Change svg logo/icon colors
 * Add 'favourite music'
 * Add fade-out effect for scrolling content
 * Learn animations, between pages and such
