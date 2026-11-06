@@ -18,8 +18,9 @@
     margin: 0 0 10px;
     background-color: var(--dark-color);
     color: var(--light-color-dark);
-    font-size: 1rem;
+    font-size: 1.25rem;
     cursor: pointer;
+    text-align: center;
 }
 
 .controls .button:hover:not(:disabled) {
@@ -37,8 +38,8 @@
 
 .canvas-wrapper {
     position: relative;
-    flex: 0 1 640px;
-    width: min(640px, 100%);
+    flex: 0 1 480px;
+    width: min(480px, 100%);
     aspect-ratio: 1;
     background: white;
     cursor: crosshair;

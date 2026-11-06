@@ -30,28 +30,32 @@
         </div>
 
         <div class="intro">
-            <h1>MNIST object detection.</h1>
+            <h1>MNIST object detection</h1>
         </div>
 
         <main class="content">
             <div class="whitespace"></div>
             <p>
-                Tegn håndskrevne siffer direkte på lerretet. Modellen kjører lokalt
-                i nettleseren med ONNX Runtime Web og tegner avgrensningsbokser rundt
-                objektene den finner når du slipper museknappen.
+                Tegn på lerretet og en maskinlærings modell vil utføre object detection for å 
+                predikere hvilket siffer er tegnet (klassifisering) og hvor i bildet sifret er 
+                tegnet. En rød bounding box vil bli tegnet rundt sifret for å vise modellens 
+                prediksjon. Man kan tegne flere sifre.
             </p>
 
             <section class="media-content detection-app" aria-label="Object detection demo">
                 <div class="controls">
+                    <select name="models" id="models" class="button">
+                        <option value="CNN">CNN</option>
+                    </select>
                     <button id="clear-button" class="button" type="button">Clear</button>
-                    <p id="status" class="status" role="status">Loading model...</p>
+                    <!-- <p id="status" class="status" role="status">Loading model...</p> -->
                 </div>
 
                 <div class="canvas-wrapper">
                     <canvas id="drawing-canvas" width="64" height="64">
                         Your browser does not support canvas.
                     </canvas>
-                    <canvas id="overlay-canvas" width="640" height="640">
+                    <canvas id="overlay-canvas" width="480" height="480">
                         Your browser does not support canvas.
                     </canvas>
                 </div>
@@ -64,10 +68,39 @@
             </section>
 
             <div class="whitespace"></div>
+
+            <!-- Description of how the project was done here -->
+            <h2>Om prosjektet (i stikkordsform)</h2>
+            <p>
+                Fra universitetet. 
+                Datasettet innholdt da bare sifrene 0 og 1 med støy lagt i bakgrunn av alle bildene.
+                Ville gjøre likt som 'MNIST med lerret' prosjektet.
+                Mye gjenbrukt kode fra prosjektet gjort på universitetet.
+                Datasettet måtte skaffes på nytt.
+            </p>
+
+            <h2>Datasettets opphav</h2>
+            <p>
+                Etter et kjapt søk fant jeg ikke noe datasett jeg kunne bruke for dette prosjektet.
+                Skjønte jeg kunne gjenbruke MNIST datasettet og få til mye mer.
+                I MNIST datasettet er alle bildene 28x28 piksler stort.
+                Jeg lagde kode for å kunne lage hvilken som helst størrelse bilder, uten støy, med variabelt antall sifre i bildene.
+                -> mye større datasett enn hva jeg kunne lastet ned fra internett. Alt lages og lagres i minne så tar ingen plass.
+                Kontrollering av random seed lar meg reprodusere datasettet.
+            </p>
+
+            <h2>Om modellen(e)</h2>
+            <p>
+                Modellen som brukes nå (CNN) har omtrent akkurat samme arkitektur som det jeg brukte i prosjektet på universitetet.
+                Liten endring bare for å tilpasse endret input størrelse.
+                Overrasket over at det ikke trengtes å justere modellen mer for å få fornøyelig resultat.
+            </p>
+
+            <div class="whitespace" id="whitespace-final"></div>
         </main>
     </div>
 
-    <script src="mnist_object_detection.js"></script>
+    <script type="module" src="./mnist_object_detection.ts"></script>
 </body>
 
 </html>

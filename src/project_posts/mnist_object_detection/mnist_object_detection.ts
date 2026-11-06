@@ -36,7 +36,7 @@ function requiredElement<T extends Element>(selector: string): T {
 const drawingCanvas = requiredElement<HTMLCanvasElement>("#drawing-canvas");
 const overlayCanvas = requiredElement<HTMLCanvasElement>("#overlay-canvas");
 const clearButton = requiredElement<HTMLButtonElement>("#clear-button");
-const statusElement = requiredElement<HTMLParagraphElement>("#status");
+// const statusElement = requiredElement<HTMLParagraphElement>("#status");
 const resultsText = requiredElement<HTMLParagraphElement>("#results-text");
 const detectionsList = requiredElement<HTMLUListElement>("#detections");
 const drawingContextElement = drawingCanvas.getContext("2d");
@@ -49,16 +49,16 @@ if (!drawingContextElement || !overlayContextElement) {
 const drawingContext = drawingContextElement;
 const overlayContext = overlayContextElement;
 const canvasSize = 64;
-const displaySize = 640;
+const displaySize = 480;
 const gridSize = 8;
-const valuesPerCell = 15;
+const valuesPerCell = 15;   // Output logits?
 const scoreThreshold = 0.35;
 let session: OrtSession | null = null;
 let isDrawing = false;
 
-function setStatus(message: string): void {
-    statusElement.textContent = message;
-}
+// function setStatus(message: string): void {
+//     statusElement.textContent = message;
+// }
 
 function clearOverlay(): void {
     overlayContext.clearRect(0, 0, displaySize, displaySize);
@@ -70,7 +70,7 @@ function clearCanvas(): void {
     clearOverlay();
     resultsText.textContent = "No detections yet.";
     detectionsList.replaceChildren();
-    setStatus(session ? "Model ready. Draw a digit." : "Loading model...");
+    // setStatus(session ? "Model ready. Draw a digit." : "Loading model...");
 }
 
 function canvasPoint(event: PointerEvent): { x: number; y: number } {
@@ -127,32 +127,36 @@ function prepareInput(): OrtTensor {
 }
 
 function decodeDetections(tensor: OrtTensor): Detection[] {
-    const values = Array.from(tensor.data);
+    const values = Array.from(tensor.data); // practically flattens the output tensor
     const detections: Detection[] = [];
     const sigmoid = (value: number): number => 1 / (1 + Math.exp(-value));
 
     for (let row = 0; row < gridSize; row++) {
         for (let column = 0; column < gridSize; column++) {
             const offset = (row * gridSize + column) * valuesPerCell;
-            const objectnessValue = values[offset];
-            const objectness = objectnessValue >= 0 && objectnessValue <= 1
-                ? objectnessValue
-                : sigmoid(objectnessValue);
-            const centerX = values[offset + 1];
-            const centerY = values[offset + 2];
-            const halfWidth = values[offset + 3];
-            const halfHeight = values[offset + 4];
+
+            const objectnessLogit = values[offset];
+            const objectness = sigmoid(objectnessLogit);
+
+            const centerX = values[offset + 1];     // in cell
+            const centerY = values[offset + 2];     // in cell
+
+            const width = (values[offset + 3] > 0) ? values[offset + 3] : 0;
+            const height = (values[offset + 4] > 0) ? values[offset + 4] : 0;
+
             const classLogits = values.slice(offset + 5, offset + valuesPerCell);
             const maximumLogit = Math.max(...classLogits);
-            const classExponentials = classLogits.map((logit) => Math.exp(logit - maximumLogit));
+            const classExponentials = classLogits.map((logit) => Math.exp(logit - maximumLogit));   
+                    // subtract maximumLogit for numerical stability, no change in result
             const exponentialSum = classExponentials.reduce((sum, value) => sum + value, 0);
             const classProbabilities = classExponentials.map((value) => value / exponentialSum);
             const label = classProbabilities.indexOf(Math.max(...classProbabilities));
             const score = objectness * classProbabilities[label];
-            const x1 = (column + centerX - halfWidth) / gridSize;
-            const y1 = (row + centerY - halfHeight) / gridSize;
-            const x2 = (column + centerX + halfWidth) / gridSize;
-            const y2 = (row + centerY + halfHeight) / gridSize;
+
+            const x1 = (column + centerX - width / 2) / gridSize;
+            const y1 = (row + centerY - height / 2) / gridSize;
+            const x2 = (column + centerX + width / 2) / gridSize;
+            const y2 = (row + centerY + height / 2) / gridSize;
 
             if (score >= scoreThreshold && x2 > x1 && y2 > y1) {
                 detections.push({
@@ -200,14 +204,14 @@ function nonMaximumSuppression(detections: Detection[]): Detection[] {
 function drawDetections(detections: Detection[]): void {
     clearOverlay();
     overlayContext.strokeStyle = "#d22";
-    overlayContext.lineWidth = 4;
+    overlayContext.lineWidth = 2;
     overlayContext.font = "20px sans-serif";
 
     for (const detection of detections) {
-        const x1 = detection.x1 * displaySize;
-        const y1 = detection.y1 * displaySize;
-        const x2 = detection.x2 * displaySize;
-        const y2 = detection.y2 * displaySize;
+        const x1 = Math.round(detection.x1 * canvasSize) * (displaySize / canvasSize);
+        const y1 = Math.round(detection.y1 * canvasSize) * (displaySize / canvasSize);
+        const x2 = Math.round(detection.x2 * canvasSize) * (displaySize / canvasSize);
+        const y2 = Math.round(detection.y2 * canvasSize) * (displaySize / canvasSize);
         const label = `${detection.label} (${(detection.score * 100).toFixed(1)}%)`;
         const labelWidth = overlayContext.measureText(label).width + 12;
         const labelHeight = 28;
@@ -223,11 +227,11 @@ function drawDetections(detections: Detection[]): void {
 
 async function runInference(): Promise<void> {
     if (!session) {
-        setStatus("The model is still loading.");
+        // setStatus("The model is still loading.");
         return;
     }
     try {
-        setStatus("Detecting...");
+        // setStatus("Detecting...");
         const output = (await session.run({
             [session.inputNames[0]]: prepareInput()
         }))[session.outputNames[0]];
@@ -241,10 +245,10 @@ async function runInference(): Promise<void> {
             item.textContent = `Class ${detection.label}: ${(detection.score * 100).toFixed(1)}%`;
             return item;
         }));
-        setStatus("Detection complete.");
+        // setStatus("Detection complete.");
     } catch (error) {
         console.error("Object detection failed:", error);
-        setStatus("Detection failed. Check the browser console for details.");
+        // setStatus("Detection failed. Check the browser console for details.");
     }
 }
 
@@ -258,9 +262,9 @@ clearCanvas();
 void (async () => {
     try {
         session = await ort.InferenceSession.create("./mnist_object_detection.onnx");
-        setStatus("Model ready. Draw a digit.");
+        // setStatus("Model ready. Draw a digit.");
     } catch (error) {
         console.error("Could not load object detection model:", error);
-        setStatus("Could not load the model. Check the browser console for details.");
+        // setStatus("Could not load the model. Check the browser console for details.");
     }
 })();
