@@ -1,0 +1,26 @@
+.media-content {
+    display: flex;
+    gap: 10px;
+}
+.media-content img {
+    object-fit: contain; 
+}
+#demoimg1 {
+    height: min(400px, 40vw);
+}
+#demoimg2, #demoimg3, #demoimg4 {
+    width: 600px;
+}
+iframe {
+    width: min(600px, 90%);   
+}
+
+@media (max-width: 900px) {
+    .media-content {
+        flex-direction: column;
+    }
+    #demoimg1, #demoimg2, #demoimg3, #demoimg4 {
+        height: initial;
+        width: 90%;
+    }
+}
