@@ -20,10 +20,10 @@ async function loadSelectedModel() {
     let modelWeightsPath;
     switch (selectedModel) {
         case "simple cnn":
-            modelWeightsPath = './simple_cnn.onnx';
+            modelWeightsPath = './simple-cnn.onnx';
             break;
         case "deep cnn":
-            modelWeightsPath = './deep_cnn.onnx';
+            modelWeightsPath = './deep-cnn.onnx';
             break;
         default:
             console.error("Invalid model selected");
