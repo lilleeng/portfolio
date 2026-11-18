@@ -13,85 +13,65 @@
 </head>
 
 <body>
-    <div class="layout">
+    <nav aria-label="Primary navigation">
+        <ul class="ul-navbar">
+            <li><a href="../"><img src="../assets/home-icon-light.svg" alt="Home" title="Home"></a></li>
+            <li><a href="./projects.html"><img src="../assets/folder-icon-light.svg" alt="Projects" title="Projects"></a></li>
+            <li><a href="./cv.html"><img src="../assets/CV-icon-light.svg" alt="CV" title="CV"></a></li>
+        </ul>
+    </nav>
 
-        <div class="navbar">
-            <div class="navbar2">
-                <a href="../">
-                    <img src="../assets/home-icon.svg" alt="Home" title="Home">
-                </a>
-                <a href="./projects.html">
-                    <img src="../assets/folder-icon.svg" alt="Projects" title="Projects">
-                </a>
-                <a href="./cv.html">
-                    <img src="../assets/CV-icon.svg" alt="CV" title="CV">
-                </a>
-            </div>
-        </div>
-
-        <div class="intro">
+    <main class="content">
+        <section class="projects">
             <h1>Projects</h1>
-        </div>
-        
-        <div class="content">
-
-            <div class="whitespace"></div>
 
             <div class="project-grid">
-
-                <a href="./mnist-object-detection/mnist-object-detection.html" id="no-link-style">
-                    <div class="project-card">
-                        <img id="thumbnail" src="../assets/mnist-object-detection.png" alt="MNIST object detection image">
+                <a href="./mnist-object-detection/mnist-object-detection.html" class="no-link-style">
+                    <article class="project-card">
+                        <img class="thumbnail" src="../assets/mnist-object-detection.png" alt="MNIST object detection image">
                         <div class="project-text-content">
-                            <h3 id="title">Digit Object Detection</h3>
-                            <p id="description">Tegn et siffer for hånd og en modell predikerer hvilket siffer det er og hvor i bildet det er.</p>
+                            <h2>Digit Object Detection</h2>
+                            <p>Tegn et siffer for hånd og en modell predikerer hvilket siffer det er og hvor i bildet det er.</p>
                         </div>
-                        <img id="arrow-up-right" src="../assets/arrow-up-right.svg" alt="arrow">
-                    </div>
+                        <img class="arrow-up-right" src="../assets/arrow-up-right.svg" alt="Open project">
+                    </article>
                 </a>
 
-                <a href="./mnist/mnist.html" id="no-link-style">
-                    <div class="project-card">
-                        <img id="thumbnail" src="../assets/mnist3.png" alt="MNIST">
+                <a href="./mnist/mnist.html" class="no-link-style">
+                    <article class="project-card">
+                        <img class="thumbnail" src="../assets/mnist3.png" alt="MNIST">
                         <div class="project-text-content">
-                            <h3 id="title">MNIST med lerrett</h3>
-                            <p id="description">Tegn et siffer for hånd og en modell predikere hvilket siffer det er.</p>
+                            <h2>MNIST med lerrett</h2>
+                            <p>Tegn et siffer for hånd og en modell predikerer hvilket siffer det er.</p>
                         </div>
-                        <img id="arrow-up-right" src="../assets/arrow-up-right.svg" alt="arrow">
-                    </div>
+                        <img class="arrow-up-right" src="../assets/arrow-up-right.svg" alt="Open project">
+                    </article>
                 </a>
 
-                <a href="./video-playlist-creator/video-playlist-creator.html" id="no-link-style">
-                    <div class="project-card">
-                        <img id="thumbnail" src="../assets/vpc1.png" alt="Video playlist creator">
+                <a href="./video-playlist-creator/video-playlist-creator.html" class="no-link-style">
+                    <article class="project-card">
+                        <img class="thumbnail" src="../assets/vpc1.png" alt="Video playlist creator">
                         <div class="project-text-content">
-                            <h3 id="title">Video playlist creator</h3>
-                            <p id="description">Input en mappe med lydfiler og et cover bilde, få en lang sammenhengende video eller flere individuelle.</p>
+                            <h2>Video playlist creator</h2>
+                            <p>Input en mappe med lydfiler og et cover bilde, få en lang sammenhengende video eller flere individuelle.</p>
                         </div>
-                        <img id="arrow-up-right" src="../assets/arrow-up-right.svg" alt="arrow">
-                    </div>
+                        <img class="arrow-up-right" src="../assets/arrow-up-right.svg" alt="Open project">
+                    </article>
                 </a>
 
-                <a href="./kalkulator/kalkulator.html" id="no-link-style">
-                    <div class="project-card">
-                        <img id="thumbnail" src="../assets/kalkulator-kvadrat.png" alt="Kalkulator">
+                <a href="./kalkulator/kalkulator.html" class="no-link-style">
+                    <article class="project-card">
+                        <img class="thumbnail" src="../assets/kalkulator-kvadrat.png" alt="Kalkulator">
                         <div class="project-text-content">
-                            <h3 id="title">html Kalkulator</h3>
-                            <p id="description">Et lite prosjekt for å bli kjent med html, css, og javascript.</p>
+                            <h2>html Kalkulator</h2>
+                            <p>Et lite prosjekt for å bli kjent med html, css, og javascript.</p>
                         </div>
-                        <img id="arrow-up-right" src="../assets/arrow-up-right.svg" alt="arrow">
-                    </div>
+                        <img class="arrow-up-right" src="../assets/arrow-up-right.svg" alt="Open project">
+                    </article>
                 </a>
-
-                <!-- <div style="width: 50px; height: 2000px; background-color: green; margin: 50px;"></div> -->
-
             </div>
-
-            <div class="whitespace" id="whitespace-final"></div>
-
-        </div>
-
-    </div>
+        </section>
+    </main>
 </body>
 
 </html>

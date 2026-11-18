@@ -8,31 +8,34 @@
 
 @import './common.css';
 
-.layout {
-    grid-template-columns: 25% 75%;
-    grid-template-areas: 
-    'navbar navbar'
-    'about-me content';
+.ul-navbar {
+    background-color: var(--colorful-color);
 }
 
-.navbar2 {
-    background-color: var(--colorful-color);
-    border-color: var(--light-color);
+.content {
+    max-width: 1080px;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: calc(25% - 10px) calc(75% - 10px);
+        /* Subtract the column-gap. */
+    column-gap: 20px;
+    padding-bottom: 20px;
+}
+
+.rest-of-content h1 {
+    border-bottom: 2px solid var(--dark-color);
 }
 
 .about-me {
-    width: min(100%, 320px);
-    height: 100vh;
-    
-    grid-area: about-me;
-
+    /* width: min(100%, 320px); */
+    align-self: start;
     display: flex;
     flex-direction: column;
     justify-content: center;
     
     background-color: var(--colorful-color);
     color: var(--light-color);
-    top: 0;
+    top: 80px;
     position: sticky;
 
     font-size: 24px;
@@ -44,20 +47,7 @@
     width: 90%;
     border-radius: 50%;
     object-fit: cover;
-
     border: 1px solid var(--darker-colorful-color);
-}
-
-.content {
-    grid-column: 2;
-}
-.content > * {
-    margin-inline: 50px;
-}
-
-.whitespace {
-    width: calc(100% - 100px);
-    border-color: var(--dark-color);
 }
 
 .recent-projects {
@@ -67,7 +57,6 @@
 }
 .project {
     height: min(200px, 35vw);
-    width: 100%;
     cursor: pointer;
     border-radius: 15px;
 
@@ -78,7 +67,8 @@
     transition: 0.2s; 
 }
 .project:hover {
-    background-color: var(--light-color-dark);
+    background-color: var(--colorful-color);
+    color: var(--light-color);
     border-radius: 15px;
 }
 .project img {
@@ -97,17 +87,12 @@
     width: min(40px, 7vw);
 }
 
-.tools {
-    
-}
 .tools-display {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 50px;
 }
 .tool {
-    /* max-height: 120px; */
-    /* max-width: 120px; */
     height: 100px;
     width: 100px;
 
@@ -115,15 +100,12 @@
     flex-direction: column;
     align-items: center;
 
-    /* border: 2px solid var(--colorful-color); */
     border-radius: 15px;
-    padding: 10px;
+    margin: 0;
 }
 .tool img {
     height: 80px;
     width: 80px;
-
-    /* height: 100%; */
 
     object-fit: contain;
 }
@@ -134,84 +116,72 @@
 
 /* TABLET SIZE */
 @media (max-width: 900px) {
-    .layout {
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-        'about-me'
-        'navbar'
-        'content';
-    }
-
-    .about-me {
-        position: static;
-        width: 100vw;
-        height: 400px;
-
-        flex-direction: row;
-        align-items: center;
-    }
-    .about-me img {
-        width: min(320px, 42vw);
-
-        grid-area: image;
-    }
-    .text-content {
-        margin-left: 0;
-    }
-    #about-me-p2 {
-        display: none;
-    }
-
-    .navbar {
-        top: 15px;
-        position: sticky;
-    }
-    .navbar2 {
-        height: 80%;
-        width: 450px;
+    .ul-navbar {
+        padding: 24px 0;
+        column-gap: 8em;
+        margin: 0;
     }
 
     .content {
-        border: none;
-        grid-column: 1;
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 20px;
+            /* Might make sense; was column-gap before */
     }
     .content > * {
         margin-inline: 5%;
     }
 
-    .whitespace {
-        width: 90%;
+    .about-me {
+        margin-inline: 0;
+        position: static;
+        width: 100%;
+        box-sizing: border-box;
+        height: 400px;
+        display: grid;
+        grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+        grid-template-areas:
+            "image heading"
+            "image text";
+        
+        /* align-items: center; */
+        align-content: center;
+        row-gap: 1em;
+    }
+
+    .about-me img {
+        grid-area: image;
+        width: min(90%, 320px);
+        box-sizing: border-box;
+    }
+
+    .about-me h2 {
+        grid-area: heading;
+        margin-block: 0;
+        align-self: flex-end;
+    }
+
+    .about-me p {
+        grid-area: text;
+        margin-block: 0;
     }
 }
 
 /* PHONE SIZE */
 @media (max-width: 600px) {
     .about-me {
+        display: flex;
         height: 600px;
-
         flex-direction: column;
         align-items: center;
+        text-align: center;
     }
+
+    .about-me h2 {
+        align-self: center;
+    }
+
     .about-me img {
         width: min(80%, 15em);
-
-        margin: 5%;
         margin-bottom: 0;
-    }
-    .text-content {
-        text-align: center;
-        
-        margin: 5%;
-        margin-top: 0;
-    }
-    .text-content > * {
-        margin: 0.5em;
-    }
-
-    .navbar {
-        top: 10px;
-    }
-    .navbar2 {
-        width: min(450px, 90%);
     }
 }

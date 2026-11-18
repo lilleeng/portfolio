@@ -13,144 +13,120 @@
 </head>
 
 <body>
-    <div class="layout">
+    <nav aria-label="Primary navigation">
+        <ul class="ul-navbar">
+            <li><a href="../"><img src="../assets/home-icon.svg" alt="Home" title="Home"></a></li>
+            <li><a href="./projects.html"><img src="../assets/folder-icon.svg" alt="Projects" title="Projects"></a></li>
+            <li><a href="./cv.html"><img src="../assets/CV-icon.svg" alt="CV" title="CV"></a></li>
+        </ul>
+    </nav>
 
-        <div class="navbar">
-            <div class="navbar2">
-                <a href="../">
-                    <img src="../assets/home-icon.svg" alt="Home" title="Home">
-                </a>
-                <a href="./projects.html">
-                    <img src="../assets/folder-icon.svg" alt="Projects" title="Projects">
-                </a>
-                <a href="./cv.html">
-                    <img src="../assets/CV-icon.svg" alt="CV" title="CV">
-                </a>
-            </div>
+    <main class="content">
+        <aside class="about-me">
+            <img src="../assets/me.jpg" alt="Kjetil">
+            <h2>Hei!</h2>
+            <p>Kjetil, 26 år. Bachelor i Kognitiv Vitenskap. Her viser jeg prosjekter jeg jobber med!</p>
+        </aside>
+
+        <div class="rest-of-content">
+            <section class="education">
+                <h1>EDUCATION</h1>
+
+                <div class="bento-grid" id="education-grid">
+                    <article class="bento-box education-main">
+                        <h2>Bachelor i Kognitiv Vitenskap | Universitetet i Bergen | 2021-2026</h2>
+                        <p>
+                            Ett år ved bachelorprogram for Datavitenskap (2021):<br><br>
+                            Python, datasikkerhet, logikk, matematikk.<br><br>
+                            Overgang til Kognitiv Vitenskap (2022):<br><br>
+                            Java, lingvistikk, logikk, haskell, intro til kognitiv vitenskap, algoritmer og datastrukturer.<br><br>
+                            Utvekslingsår i Yamanashi, Japan (2024) før returnering og fullføring av bachelor:<br><br>
+                            Sinnsfilosofi, kategoriteori, teoretisk algoritmer, multiprogrammering, språk og kognisjon, maskinlæring, dyplæring, forsterkningslæring.
+                        </p>
+                        <img src="../assets/uib-logo.svg" alt="UiB logo">
+                    </article>
+                    <article class="bento-box education-exchange">
+                        <h2>Utveksling | iCLA ved Yamanashi Gakuin Universitet | 2024</h2>
+                        <p>
+                            Ett år utveksling til Yamanashi, Japan:<br><br>
+                            Intro til psykologi, psykobiologi, sosial psykologi, kognitiv psykologi, research design, maskinlæring.
+                        </p>
+                        <img src="../assets/icla-logo.avif" alt="iCLA logo">
+                    </article>
+                    <article class="bento-box education-alta">
+                        <h2>Alta VGS | 2016-2020</h2>
+                        <p>Studiespesialisering i realfag.</p>
+                        <img src="../assets/altavgs-logo.png" alt="Alta vgs logo">
+                    </article>
+                    <article class="bento-box education-japan">
+                        <h2>Utveksling | Urawa Gakuin Videregående | 2018</h2>
+                        <p>Utvekslingsår til Japan med AFS.</p>
+                        <img src="../assets/uragaku-logo.png" alt="Uragaku logo">
+                    </article>
+                    <article class="bento-box education-toneheim">
+                        <h2>Toneheim musikk folkehøgskole, Piano | 2020</h2>
+                        <p>Klassisk piano og litt jazz.</p>
+                        <img src="../assets/toneheim-logo.jpg" alt="Toneheim logo">
+                    </article>
+                </div>
+            </section>
+
+            <section class="work-experience">
+                <h1>WORK EXPERIENCE</h1>
+                <div class="bento-grid" id="work-experience-grid">
+                    <article class="bento-box work-main">
+                        <h2>Scandic hotels | Servitør og bartender | 2019-2026</h2>
+                        <p>
+                            Jobbet sommer 2019, sommer 2021, sommer 2023, vinter 2024, sommer og høst 2025, vår og sommer 2026. Varierte oppgaver innen hotellet. Morgen- og kveldsskifte.
+                        </p>
+                        <img src="../assets/scandic-logo.webp" alt="Scandic logo" style="border-radius: 0px;">
+                    </article>
+                    <article class="bento-box work-assistant">
+                        <h2>Lærerassistent | Gakori barneskole | 2024, 3 måneder</h2>
+                    </article>
+                    <article class="bento-box work-laundry">
+                        <h2>Vaskeriet ved Aksis | 2023, to uker</h2>
+                    </article>
+                    <article class="bento-box work-piano">
+                        <h2>Pianolærer | Alta kulturskole | 2021 en uke</h2>
+                    </article>
+                </div>
+            </section>
+
+            <section class="languages">
+                <h1>LANGUAGES</h1>
+                <div class="bento-grid" id="languages-grid">
+                    <article class="bento-box language-norwegian">
+                        <h2>Norsk</h2>
+                        <p>
+                            Morsmål.
+                        </p>
+                    </article>
+                    <article class="bento-box language-english">
+                        <h2>Engelsk</h2>
+                        <p>
+                            Flytende.
+                        </p>
+                    </article>
+                    <article class="bento-box language-japanese">
+                        <h2>Japansk</h2>
+                        <p>
+                            Bestått JLPT N2.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="skills">
+                <h1>SKILLS</h1>
+                <div class="bento-grid" id="skills-grid">
+                    <article class="bento-box skill-piano">
+                        <h2>Piano</h2>
+                    </article>
+                </div>
+            </section>
         </div>
-
-        <div class="about-me">
-            <img src="../assets/me.jpg" alt="Me">
-            <div class="text-content">
-                <h2>Hei!</h2>
-                <p>Kjetil, 26 år. Bachelor i Kognitiv Vitenskap. Her viser jeg prosjekter jeg jobber med!</p>
-            </div>
-        </div>
-
-        <div class="content">
-
-            <div class="whitespace"></div>
-            <h1>EDUCATION</h1>
-
-            <div class="bento-grid" id="education-grid">
-
-                <div class="bento-box" style="grid-area: box-1;">
-                    <h2>Bachelor i Kognitiv Vitenskap | Universitetet i Bergen | 2021-2026</h2>
-                    <p>
-                        Ett år ved bachelorprogram for Datavitenskap (2021):<br><br>
-                        Python, datasikkerhet, logikk, matematikk.<br><br>
-                        Overgang til Kognitiv Vitenskap (2022):<br><br>
-                        Java, lingvistikk, logikk, haskell, intro til kognitiv vitenskap, algoritmer og datastrukturer.<br><br>
-                        Utvekslingsår i Yamanashi, Japan (2024) før returnering og fullføring av bachelor:<br><br>
-                        Sinnsfilosofi, kategoriteori, teoretisk algoritmer, multiprogrammering, språk og kognisjon, maskinlæring, dyplæring, forsterkningslæring.
-                    </p>
-                    <img src="../assets/uib-logo.svg" alt="UiB logo">
-                </div>
-                <div class="bento-box" style="grid-area: box-2;">
-                    <h2>Utveksling | iCLA ved Yamanashi Gakuin Universitet | 2024</h2>
-                    <p>
-                        Ett år utveksling til Yamanashi, Japan:<br><br>
-                        Intro til psykologi, psykobiologi, sosial psykologi, kognitiv psykologi, research design, maskinlæring.
-                    </p>
-                    <img src="../assets/icla-logo.avif" alt="iCLA logo">
-                </div>
-                <div class="bento-box" style="grid-area: box-3;">
-                    <h2>Alta VGS | 2016-2020</h2>
-                    <p>Studiespesialisering i realfag.</p>
-                    <img src="../assets/altavgs-logo.png" alt="Alta vgs logo">
-                </div>
-                <div class="bento-box" style="grid-area: box-4;">
-                    <h2>Utveksling | Urawa Gakuin Videregående | 2018</h2>
-                    <p>Utvekslingsår til Japan med AFS.</p>
-                    <img src="../assets/uragaku-logo.png" alt="Uragaku logo">
-                </div>
-                <div class="bento-box" style="grid-area: box-5;">
-                    <h2>Toneheim musikk folkehøgskole, Piano | 2020</h2>
-                    <p>Klassisk piano og litt jazz.</p>
-                    <img src="../assets/toneheim-logo.jpg" alt="Toneheim logo">
-                </div>
-
-            </div>
-
-            <div class="whitespace"></div>
-            <h1>WORK EXPERIENCE</h1>
-
-            <div class="bento-grid" id="work-experience-grid">
-
-                <div class="bento-box" style="grid-area: box-1;">
-                    <h2>Scandic hotels | Servitør og bartender | 2019-2026</h2>
-                    <p>
-                        Jobbet sommer 2019, sommer 2021, sommer 2023, vinter 2024, sommer og høst 2025, vår og sommer 2026. Varierte oppgaver innen hotellet. Morgen- og kveldsskifte.
-                    </p>
-                    <img src="../assets/scandic-logo.webp" alt="Scandic logo" style="border-radius: 0px;">
-                </div>
-                <div class="bento-box" style="grid-area: box-2;">
-                    <h2>Lærerassistent | Gakori barneskole | 2024, 3 måneder</h2>
-                </div>
-                <div class="bento-box" style="grid-area: box-3;">
-                    <h2>Vaskeriet ved Aksis | 2023, to uker</h2>
-                </div>
-                <div class="bento-box" style="grid-area: box-4;">
-                    <h2>Pianolærer | Alta kulturskole | 2021 en uke</h2>
-                </div>
-
-            </div>
-
-            <div class="whitespace"></div>
-            <h1>LANGUAGES</h1>
-
-            <div class="bento-grid" id="languages-grid">
-
-                <div class="bento-box" style="grid-area: box-1;">
-                    <h2>Norsk</h2>
-                    <p>
-                        Morsmål.
-                    </p>
-                </div>
-                <div class="bento-box" style="grid-area: box-2;">
-                    <h2>Engelsk</h2>
-                    <p>
-                        Flytende.
-                    </p>
-                </div>
-                <div class="bento-box" style="grid-area: box-3;">
-                    <h2>Japansk</h2>
-                    <p>
-                        Bestått JLPT N2.
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="whitespace"></div>
-            <h1>SKILLS</h1>
-
-            <div class="bento-grid" id="skills-grid">
-
-                <div class="bento-box" style="grid-area: box-1;">
-                    <h2>Piano</h2>
-                </div>
-
-            </div>
-
-            <div class="whitespace" id="whitespace-final"></div>
-        
-
-            
-            <!-- <div style="width: 50px; height: 2000px; background-color: green; margin: 50px;"></div> -->
-
-        </div>
-    </div>
+    </main>
 </body>
 
 </html>

@@ -12,6 +12,10 @@ Link to view site: https://lilleeng.github.io/portfolio/
 * Make post for 'video playlist creator' ✅
 * Fix issue with the Git and JavaScript logos not loading on the GitHub Page ✅
 * Made a better model for MNIST ✅
+
+* Changed design for index cv and projects.html; do the same for project posts
+* Changed to use semantic html for index cv and projects.html; do the same for project posts
+
 * Fix "layout leakage" around the navbar in tablet/mobile when scrolled down
 * Add 'favourite music'
 * Add fade-out effect for scrolling content
