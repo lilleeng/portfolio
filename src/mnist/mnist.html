@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=no>
+<html lang="no">
 
 <head>
     <meta charset="UTF-8">
@@ -8,108 +8,100 @@
     <meta name="author" content="Kjetil">
     <title>Kjetil | Projects | MNIST med lerrett</title>
     <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
-
     <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
-    <link rel="stylesheet" href="../project-style.css">
     <link rel="stylesheet" href="./mnist.css">
 </head>
 
 <body>
+    <nav aria-label="Primary navigation">
+        <ul class="ul-navbar">
+            <li><a href="../../"><img src="../../assets/home-icon-light.svg" alt="Home" title="Home"></a></li>
+            <li><a href="../projects.html"><img src="../../assets/folder-icon-light.svg" alt="Projects" title="Projects"></a></li>
+            <li><a href="../cv.html"><img src="../../assets/CV-icon-light.svg" alt="CV" title="CV"></a></li>
+        </ul>
+    </nav>
 
-    <div class="layout">
-
-        <div class="navbar">
-            <div class="navbar2">
-                <a href="../../">
-                    <img src="../../assets/home-icon.svg" alt="Home" title="Home">
-                </a>
-                <a href="../projects.html">
-                    <img src="../../assets/folder-icon.svg" alt="Projects" title="Projects">
-                </a>
-                <a href="../cv.html">
-                    <img src="../../assets/CV-icon.svg" alt="CV" title="CV">
-                </a>
-            </div>
-        </div>
-
-        <div class="intro">
+    <main class="content">
+        <header class="page-header">
             <h1>MNIST med lerrett</h1>
-        </div>
+        </header>
 
-        <div class="content">
-            <div class="whitespace"></div>
+        <section class="introduction" aria-label="About the project">
             <p>
-                Her er et lerret. Drop-down menyen har to modeller for maskinlæring (KI) jeg har 
-                laget og trent til å gjøre en sannsynlighetsberegning av hvilket siffer som er 
-                tegnet. Til høyre viser et histogram hvilke beregninger modellen har gjort. 
+                Her er et lerret. Drop-down menyen har to modeller for maskinlæring (KI) jeg har
+                laget og trent til å gjøre en sannsynlighetsberegning av hvilket siffer som er
+                tegnet. Til høyre viser et histogram hvilke beregninger modellen har gjort.
                 <br><br>
-                Modellen vil foreløpig alltid prøve å finne fram til et siffer selv om det som er 
+                Modellen vil foreløpig alltid prøve å finne fram til et siffer selv om det som er
                 tegnet ikke ligner på noe tall.
             </p>
+        </section>
 
+        <section class="interactive-demo" aria-labelledby="demo-heading">
+            <h2 id="demo-heading">Prøv modellen</h2>
             <div class="media-content">
-
                 <div class="container">
-                    <div class="drawing-section">
+                    <section class="drawing-section" aria-label="Drawing controls">
+                        <label for="models">Velg modell</label>
                         <select name="models" id="models" class="button">
                             <option value="simple cnn">Simple CNN</option>
                             <option value="deep cnn">Deep CNN</option>
                         </select>
-                        <canvas id='canvas' class="drawing-canvas" width="28" height="28"></canvas>
+                        <canvas id="canvas" class="drawing-canvas" width="28" height="28" aria-label="Tegneflate for et siffer">
+                            Your browser does not support canvas.
+                        </canvas>
                         <div class="drawing-board-controls">
-                            <button class="button" onclick="clearCanvas()">Empty</button>
+                            <button class="button" type="button" onclick="clearCanvas()">Empty</button>
                         </div>
-                    </div>
+                    </section>
 
-                    <div class="histogram-div">
-                        <canvas id="histogram" width="250" height="250"></canvas>
-                    </div>
+                    <figure class="histogram-div">
+                        <canvas id="histogram" width="250" height="250" role="img" aria-label="Histogram showing the model's predictions">
+                            Your browser does not support canvas.
+                        </canvas>
+                    </figure>
                 </div>
-
             </div>
-            
-            <div class="whitespace"></div>
-            <h2>
-                Om modellene
-                <br><br>
-            </h2>
+        </section>
 
-            <h3>Simple CNN</h3>
-            <p>
-                1. Convolutional lag, en utkanal, kernel størrelse 3x3, padding 1<br>
-                2. Flatten lag<br>
-                3. Fully connected lag, ut features 10 (siffrene)<br><br>
+        <section class="model-details" aria-labelledby="models-heading">
+            <h2 id="models-heading">Om modellene</h2>
 
-                På testing settet fikk denne modellen 91.99% nøyaktighet. På testing av min egen
-                håndskrift med 3 prøver for hvert siffer får den en nøyaktighet på 23 / 30 riktig,
-                så 76.66% nøyaktighet.
-            </p>
+            <article>
+                <h3>Simple CNN</h3>
+                <ol>
+                    <li>Convolutional lag, en utkanal, kernel størrelse 3x3, padding 1</li>
+                    <li>Flatten lag</li>
+                    <li>Fully connected lag, ut features 10 (siffrene)</li>
+                </ol>
+                <p>
+                    På testing settet fikk denne modellen 91.99% nøyaktighet. På testing av min egen
+                    håndskrift med 3 prøver for hvert siffer får den en nøyaktighet på 23 / 30 riktig,
+                    så 76.66% nøyaktighet.
+                </p>
+            </article>
 
-            <h3>Deep CNN</h3>
-            <p>
-                1. Convolutional lag, 32 utkanaler, kernel størrelse 3x3, padding 1<br>
-                2. BatchNormalization lag<br>
-                3. ReLU aktiveringslag<br>
-                4. MaxPooling lag, kernel størrelse 2x2<br>
-                5. Convolutional lag, 64 utkanaler, kernel størrelse 3x3, padding 1<br>
-                6. BatchNormalization lag<br>
-                7. ReLU aktiveringslag<br>
-                8. MaxPooling lag, kernel størrelse 2x2<br>
-                9. Flatten lag<br>
-                10. Fully connected lag med 128 ut-features<br>
-                11. ReLU aktiveringslag<br>
-                12. Fully connected lag, ut features 10 (siffrene)<br><br>
-
-                På testing settet fikk denne modellen 98.41% nøyaktighet.
-            </p>
-            <div class="whitespace" id="whitespace-final"></div>
-
-        </div>
-
-    </div>
+            <article>
+                <h3>Deep CNN</h3>
+                <ol>
+                    <li>Convolutional lag, 32 utkanaler, kernel størrelse 3x3, padding 1</li>
+                    <li>BatchNormalization lag</li>
+                    <li>ReLU aktiveringslag</li>
+                    <li>MaxPooling lag, kernel størrelse 2x2</li>
+                    <li>Convolutional lag, 64 utkanaler, kernel størrelse 3x3, padding 1</li>
+                    <li>BatchNormalization lag</li>
+                    <li>ReLU aktiveringslag</li>
+                    <li>MaxPooling lag, kernel størrelse 2x2</li>
+                    <li>Flatten lag</li>
+                    <li>Fully connected lag med 128 ut-features</li>
+                    <li>ReLU aktiveringslag</li>
+                    <li>Fully connected lag, ut features 10 (siffrene)</li>
+                </ol>
+                <p>På testing settet fikk denne modellen 98.41% nøyaktighet.</p>
+            </article>
+        </section>
+    </main>
 
     <script src="mnist.js"></script>
-
 </body>
-
 </html>

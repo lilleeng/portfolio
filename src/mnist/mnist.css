@@ -1,90 +1,184 @@
+@import '../common.css';
+
+nav {
+    background-color: var(--dark-color);
+}
+
+.content {
+    max-width: 1080px;
+    margin-inline: auto;
+    padding-bottom: 25px;
+    margin-bottom: 20px;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+.content > * {
+    margin-inline: 10px;
+}
+
+.content h2 {
+    color: var(--light-color-dark);
+    border-bottom: 1px solid var(--light-color-dark);
+    padding-bottom: 0.4em;
+}
+
+.page-header {
+    border-bottom: 2px solid var(--light-color);
+    margin-top: 0;
+}
+
+.page-header h1 {
+    text-align: center;
+    color: var(--light-color);
+    font-size: 4rem;
+    padding: 75px 0 0;
+    margin-top: 0;
+}
+
+.media-content {
+    box-sizing: border-box;
+    width: 100%;
+    margin-inline: initial;
+    padding: clamp(12px, 3vw, 30px);
+    background-color: var(--dark-color-light);
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 .container {
-    padding: 30px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
     margin: 0 auto;
 
     display: flex;
     justify-content: center;
-    column-gap: 10px;
-    
-    /* position: absolute; */
-    /* top: 50%;
-    left: 50%; */
-    /* transform: translate(-50%, -50%); */
+    align-items: center;
+    gap: clamp(10px, 4vw, 50px);
 }
 
 .drawing-section {
-    grid-area: drawing-section;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+.drawing-section label {
+    color: var(--light-color);
+}
+
 .drawing-canvas {
     width: 300px;
     height: 300px;
-    border: 2px solid #333;
-
-    background-color: white;
     cursor: crosshair;
-    touch-action: none; /* dont understand */
+    touch-action: none;
     image-rendering: pixelated;
+}
+
+.drawing-board-controls {
+    display: flex;
+    justify-content: center;
 }
 
 .button {
     width: 200px;
     height: 40px;
-    
     border: none;
     border-radius: 25px;
-    margin: 10px 10px;
-
+    margin: 10px;
     background-color: var(--dark-color);
     color: var(--light-color-dark);
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     cursor: pointer;
     text-align: center;
-    text-decoration: none; /* dont understand */
-
-    display: block;
 }
-.button:hover {
+
+.button:hover,
+.button:focus-visible {
     color: var(--light-color);
 }
-.histogram-div {
-    margin-top: 25px;
-    /* border: 1px solid black; */
 
+.histogram-div {
+    flex: 0 0 250px;
+    margin: 0;
     display: flex;
     align-items: center;
-    grid-area: histogram;
+    justify-content: center;
 }
 
 #histogram {
-    /* border: 1px solid black; */
-    /* cursor: crosshair; */
-    touch-action: none; /* dont understand */
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.model-details article {
+    margin-block: 2em;
+}
+
+.model-details ol {
+    padding-left: 2em;
 }
 
 @media (max-width: 900px) {
+    .ul-navbar {
+        padding: 24px 0;
+        column-gap: min(8em, 25%);
+        margin: 0;
+    }
+
+    .content {
+        margin-inline: 5%;
+        margin-top: 20px;
+    }
+
+    .content > * {
+        margin-inline: 10px;
+    }
+
+    .page-header h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        padding: 50px 10px 0;
+    }
+
     .container {
         display: grid;
-        grid-template-areas: 
-        "histogram"
-        "drawing-section";
-        
-        gap: 10px;
+        grid-template-areas:
+            "histogram"
+            "drawing-section";
+        justify-items: center;
+        gap: 20px;
+    }
+
+    .drawing-section {
+        grid-area: drawing-section;
     }
 
     .histogram-div {
-        display: flex;
-        justify-content: center;
+        grid-area: histogram;
     }
 }
 
 @media (max-width: 600px) {
     .drawing-canvas {
-        width: min(300px, 90%);
+        width: min(300px, 80vw);
+        height: auto;
+        aspect-ratio: 1;
+    }
+
+    .histogram-div {
+        flex-basis: auto;
+        width: min(250px, 80vw);
+    }
+
+    #histogram {
+        width: 100%;
     }
 }

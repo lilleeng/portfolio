@@ -8,29 +8,27 @@
 
 @import './common.css';
 
-.ul-navbar {
+nav {
     background-color: var(--dark-color);
 }
 
 .content {
     max-width: 1080px;
     margin-inline: auto;
-    padding-bottom: 20px;
-}
-
-.projects {
+    padding-bottom: 25px;
+    margin-bottom: 20px;
     background-color: var(--dark-color);
 }
-.projects h1 {
+.content > * {
+    margin-inline: 10px;
+}
+.content h1 {
     text-align: center;
     color: var(--light-color);
     border-bottom: 2px solid var(--light-color);
     font-size: 4rem;
     padding: 75px;
     margin-top: 0;
-}
-.projects > * {
-    margin-inline: 100px;
 }
 
 .project-grid {
@@ -62,30 +60,17 @@
     color: var(--light-color-dark);
     margin-block: 0;
 }
-.project-card:hover .project-text-content h2 {
-    /* color: var(--light-color); */
-}
-.arrow-up-right {
-    margin-left: auto;
-    margin-right: 10px;
-    object-fit: contain;
-    width: min(40px, 7vw);
-    flex-shrink: 0;
-}
-.no-link-style {
-    text-decoration: none;
-    color: inherit;
-}
 
 /* TABLET SIZE */
 @media (max-width: 900px) {
     .ul-navbar {
         padding: 24px 0;
-        column-gap: 8em;
+        column-gap: min(8em, 25%);
         margin: 0;
     }
     .content {
         margin-inline: 5%;
+        margin-top: 20px;
     }
 }
 

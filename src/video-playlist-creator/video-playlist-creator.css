@@ -1,26 +1,111 @@
+@import '../common.css';
+
+nav {
+    background-color: var(--dark-color);
+}
+
+.content {
+    max-width: 1080px;
+    margin-inline: auto;
+    padding-bottom: 25px;
+    margin-bottom: 20px;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+.content > * {
+    margin-inline: 10px;
+}
+.content h2 {
+    color: var(--light-color-dark);
+    border-bottom: 1px solid var(--light-color-dark);
+    padding-bottom: 0.4em;
+}
+.content a {
+    color: var(--light-color-dark);
+}
+.content a:hover {
+    color: var(--light-color);
+}
+
+.page-header {
+    border-bottom: 2px solid var(--light-color);
+    margin-top: 0;
+}
+.page-header h1 {
+    text-align: center;
+    color: var(--light-color);
+    font-size: 4rem;
+    padding: 75px 0 0;
+    margin-top: 0;
+}
+
 .media-content {
+    box-sizing: border-box;
+    width: 100%;
+    margin-inline: initial;
+    padding: clamp(12px, 3vw, 30px);
+    background-color: var(--dark-color-light);
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
 }
 .media-content img {
-    object-fit: contain; 
+    display: block;
+    width: min(600px, 100%);
+    max-height: 70vh;
+    object-fit: contain;
 }
-#demoimg1 {
-    height: min(400px, 40vw);
+.media-content iframe {
+    display: block;
+    width: min(600px, 100%);
+    aspect-ratio: 2 / 1;
+    border: 0;
 }
-#demoimg2, #demoimg3, #demoimg4 {
-    width: 600px;
+.media-content + p {
+    margin-top: 1.5em;
 }
-iframe {
-    width: min(600px, 90%);   
+
+.demo-input-images img {
+    width: calc(50% - 5px);
+}
+
+figure {
+    margin-block: 1.5em;
+}
+
+.playlist-link {
+    text-align: center;
 }
 
 @media (max-width: 900px) {
+    .ul-navbar {
+        padding: 24px 0;
+        column-gap: min(8em, 25%);
+        margin: 0;
+    }
+
+    .content {
+        margin-inline: 5%;
+        margin-top: 20px;
+    }
+    .content > * {
+        margin-inline: 10px;
+    }
+
+    .page-header h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        padding: 50px 10px;
+    }
+
     .media-content {
         flex-direction: column;
     }
-    #demoimg1, #demoimg2, #demoimg3, #demoimg4 {
-        height: initial;
-        width: 90%;
+
+    .demo-input-images img {
+        width: min(600px, 100%);
     }
 }
